@@ -727,12 +727,12 @@ def show_main_app():
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         doc1, doc2 = st.columns([1, 2.5])
         with doc1:
-            if os.path.exists("doctor_profile.jpg"):
-                st.image("doctor_profile.jpg", use_container_width=True)
+            if os.path.exists("profile/BAC_SI.jpg"):
+                st.image("profile/BAC_SI.jpg", use_container_width=True)
             else:
                 st.markdown("""
                 <div style='background-color: #1e293b; height: 250px; display: flex; align-items: center; justify-content: center; border-radius: 8px;'>
-                    <span style='color: #94a3b8;'>Chưa có ảnh (doctor_profile.jpg)</span>
+                    <span style='color: #94a3b8;'>Chưa có ảnh (profile/BAC_SI.jpg)</span>
                 </div>
                 """, unsafe_allow_html=True)
         with doc2:
