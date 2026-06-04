@@ -245,20 +245,16 @@ st.markdown("""
         padding: 20px;
     }
     .article-title {
-        font-size: 26px;
+        font-size: 18px;
         color: #e2e8f0;
-        font-weight: 700;
-        margin-bottom: 12px;
+        font-weight: 600;
+        margin-bottom: 10px;
         line-height: 1.4;
     }
     .article-excerpt {
-        font-size: 16px;
+        font-size: 14px;
         color: #94a3b8;
         line-height: 1.6;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
     }
 
     /* Report Card */
@@ -708,92 +704,8 @@ def show_main_app():
         show_auth_page()
 
     elif page == 'home':
-        # --- KHU VỰC TIN NỔI BẬT (HERO SECTION) ---
-        st.markdown("<div class='card-title'>TIN NỔI BẬT</div>", unsafe_allow_html=True)
-        hero_left, hero_right = st.columns([1.8, 1], gap="large")
-        with hero_left:
-            st.markdown("""
-<div onclick="window.parent.document.evaluate('//button[contains(., \\'CHẨN ĐOÁN AI\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
-    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width: 100%; height: 450px; object-fit: cover; transition: transform 0.3s ease;">
-    <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(15,23,42,0.95), transparent); padding: 50px 30px 25px 30px;">
-        <h3 style="color: #38bdf8; margin: 0 0 12px 0; font-size: 30px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); line-height: 1.3;">Ra mắt Hệ thống AI Chẩn đoán Đa phương thức 2.0</h3>
-        <p style="color: #e2e8f0; margin: 0; font-size: 17px; line-height: 1.5;">Hospital Teams 11 chính thức nâng cấp lõi trí tuệ nhân tạo, tích hợp dữ liệu lâm sàng và hình ảnh giúp chẩn đoán chính xác hơn 99% các bệnh lý về da.</p>
-    </div>
-</div>
-""", unsafe_allow_html=True)
-            
-        with hero_right:
-            st.markdown("""
-<div style="display: flex; flex-direction: column; gap: 15px; height: 450px; justify-content: space-between;">
-    <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="display: flex; gap: 20px; align-items: center; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
-        <div style="flex-shrink: 0; width: 150px; height: 105px; border-radius: 8px; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-        </div>
-        <div>
-            <h4 style="color: #f8fafc; margin: 0 0 8px 0; font-size: 17px; line-height: 1.4;">Hợp tác phát triển liên thông Dữ liệu Hồ sơ bệnh án điện tử</h4>
-            <p style="color: #94a3b8; font-size: 14px; margin: 0;">04/06/2026</p>
-        </div>
-    </div>
-    <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="display: flex; gap: 20px; align-items: center; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
-        <div style="flex-shrink: 0; width: 150px; height: 105px; border-radius: 8px; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-        </div>
-        <div>
-            <h4 style="color: #f8fafc; margin: 0 0 8px 0; font-size: 17px; line-height: 1.4;">Chuyên gia Da Liễu cảnh báo: Chỉ số UV đạt ngưỡng cực điểm</h4>
-            <p style="color: #94a3b8; font-size: 14px; margin: 0;">03/06/2026</p>
-        </div>
-    </div>
-    <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="display: flex; gap: 20px; align-items: center; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
-        <div style="flex-shrink: 0; width: 150px; height: 105px; border-radius: 8px; overflow: hidden;">
-            <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-        </div>
-        <div>
-            <h4 style="color: #f8fafc; margin: 0 0 8px 0; font-size: 17px; line-height: 1.4;">Bảo vệ dữ liệu y tế cá nhân: Ưu tiên hàng đầu của chúng tôi</h4>
-            <p style="color: #94a3b8; font-size: 14px; margin: 0;">01/06/2026</p>
-        </div>
-    </div>
-    <button onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="background: none; border: 1px solid #38bdf8; color: #38bdf8; padding: 12px; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; width: 100%; font-size: 16px; font-weight: 600;" onmouseover="this.style.background='#38bdf8'; this.style.color='#0f172a'" onmouseout="this.style.background='none'; this.style.color='#38bdf8'">Xem tất cả tin tức ➜</button>
-</div>
-""", unsafe_allow_html=True)
-            
-        st.markdown("<br>", unsafe_allow_html=True)
-        
-        # --- NEW SECTION: SẢN PHẨM / ỨNG DỤNG TIỆN ÍCH ---
-        st.markdown("<div class='card-title'>SẢN PHẨM - DỊCH VỤ ỨNG DỤNG</div>", unsafe_allow_html=True)
-        st.markdown("""
-<div style="display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; overflow-x: auto;">
-    <div onclick="window.parent.document.evaluate('//button[contains(., \\'CHẨN ĐOÁN AI\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="text-align: center; flex: 1; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width: 110px; height: 110px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #0284c7, #38bdf8); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(56,189,248,0.3);">
-            <span style="font-size: 50px;">🤖</span>
-        </div>
-        <h5 style="color: #f8fafc; font-size: 16px; margin: 0;">Khám bệnh AI</h5>
-    </div>
-    <div onclick="window.parent.document.evaluate('//button[contains(., \\'HỒ SƠ\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="text-align: center; flex: 1; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width: 110px; height: 110px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #059669, #34d399); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(52,211,153,0.3);">
-            <span style="font-size: 50px;">📖</span>
-        </div>
-        <h5 style="color: #f8fafc; font-size: 16px; margin: 0;">Sổ Sức Khỏe</h5>
-    </div>
-    <div onclick="window.parent.document.evaluate('//button[contains(., \\'CHẨN ĐOÁN AI\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="text-align: center; flex: 1; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width: 110px; height: 110px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(167,139,250,0.3);">
-            <span style="font-size: 50px;">👨‍⚕️</span>
-        </div>
-        <h5 style="color: #f8fafc; font-size: 16px; margin: 0;">Bác Sĩ Online</h5>
-    </div>
-    <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="text-align: center; flex: 1; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width: 110px; height: 110px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #ea580c, #fb923c); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(251,146,60,0.3);">
-            <span style="font-size: 50px;">📚</span>
-        </div>
-        <h5 style="color: #f8fafc; font-size: 16px; margin: 0;">Cẩm Nang Y Tế</h5>
-    </div>
-    <div onclick="alert('Hotline Trực tuyến hoạt động 24/7: 1900-1111'); return false;" style="text-align: center; flex: 1; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width: 110px; height: 110px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #be123c, #fb7185); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(251,113,133,0.3);">
-            <span style="font-size: 50px;">📞</span>
-        </div>
-        <h5 style="color: #f8fafc; font-size: 16px; margin: 0;">Đường Dây Nóng</h5>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+        # Hero Banner Tech
+        st.markdown('<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">', unsafe_allow_html=True)
         
         # --- NEW SECTION: QUY TRÌNH CHẨN ĐOÁN ---
         st.markdown("<br>", unsafe_allow_html=True)
@@ -801,17 +713,17 @@ def show_main_app():
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         step1, step2, step3 = st.columns(3, gap="large")
         with step1:
-            st.markdown('<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:240px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
-            st.markdown("<h4 style='color: #38bdf8; text-align: center; font-size: 20px;'>Bước 1: Tiếp nhận Hình ảnh</h4>", unsafe_allow_html=True)
-            st.markdown("<p style='font-size: 16px; color: #cbd5e1; text-align: justify;'>Bệnh nhân tự chụp ảnh vùng da bị tổn thương bằng điện thoại hoặc tải lên hệ thống từ kết quả khám lâm sàng.</p>", unsafe_allow_html=True)
+            st.markdown('<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
+            st.markdown("<h4 style='color: #38bdf8; text-align: center;'>Bước 1: Tiếp nhận Hình ảnh</h4>", unsafe_allow_html=True)
+            st.write("Bệnh nhân tự chụp ảnh vùng da bị tổn thương bằng điện thoại hoặc tải lên hệ thống từ kết quả khám lâm sàng.")
         with step2:
-            st.markdown('<img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:240px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
-            st.markdown("<h4 style='color: #38bdf8; text-align: center; font-size: 20px;'>Bước 2: AI Phân tích</h4>", unsafe_allow_html=True)
-            st.markdown("<p style='font-size: 16px; color: #cbd5e1; text-align: justify;'>Mô hình Trí tuệ nhân tạo học sâu (Deep Learning) quét hình ảnh và triệu chứng lâm sàng để nhận diện 7 loại bệnh lý da liễu.</p>", unsafe_allow_html=True)
+            st.markdown('<img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
+            st.markdown("<h4 style='color: #38bdf8; text-align: center;'>Bước 2: AI Phân tích</h4>", unsafe_allow_html=True)
+            st.write("Mô hình Trí tuệ nhân tạo học sâu (Deep Learning) quét hình ảnh và triệu chứng lâm sàng để nhận diện 7 loại bệnh lý da liễu.")
         with step3:
-            st.markdown('<img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:240px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
-            st.markdown("<h4 style='color: #38bdf8; text-align: center; font-size: 20px;'>Bước 3: Bác sĩ tư vấn</h4>", unsafe_allow_html=True)
-            st.markdown("<p style='font-size: 16px; color: #cbd5e1; text-align: justify;'>Kết quả AI được trả về trong vài giây. Bác sĩ chuyên khoa sẽ dựa vào đó để đưa ra phác đồ điều trị chính xác và tư vấn trực tuyến.</p>", unsafe_allow_html=True)
+            st.markdown('<img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
+            st.markdown("<h4 style='color: #38bdf8; text-align: center;'>Bước 3: Bác sĩ tư vấn</h4>", unsafe_allow_html=True)
+            st.write("Kết quả AI được trả về trong vài giây. Bác sĩ chuyên khoa sẽ dựa vào đó để đưa ra phác đồ điều trị chính xác và tư vấn trực tuyến.")
         st.markdown("</div>", unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
@@ -826,8 +738,8 @@ def show_main_app():
                 <div class="article-box" style="margin-bottom: 10px;">
                     <img class="article-img" src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
                     <div class="article-content">
-                        <div class="article-title">Hướng Dẫn Chẩn Đoán Và Điều Trị Bệnh Da Liễu - Bộ Y Tế</div>
-                        <div class="article-excerpt">Phác đồ điều trị bệnh da liễu Bộ Y tế (Quyết định 4416/QĐ-BYT) là tài liệu chuyên môn chính thức nhằm thống nhất tiêu chuẩn chẩn đoán...</div>
+                        <div class="article-title">Top 5 phương pháp điều trị mụn trứng cá hiệu quả theo chuẩn y khoa</div>
+                        <div class="article-excerpt">Mụn trứng cá là nỗi ám ảnh của nhiều người. Cùng chuyên gia da liễu tìm hiểu 5 phác đồ điều trị được Bộ Y tế khuyên dùng...</div>
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
@@ -1113,48 +1025,40 @@ def show_main_app():
             
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         if page == 'news_detail_1':
-            st.markdown('<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:450px; object-fit:cover; border-radius:12px; margin-bottom:25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">', unsafe_allow_html=True)
-            st.markdown("<h1 style='color:#38bdf8; font-size: 34px; font-weight: bold; margin-bottom: 15px; line-height: 1.3;'>Hướng Dẫn Chẩn Đoán Và Điều Trị Bệnh Da Liễu - Bộ Y Tế</h1>", unsafe_allow_html=True)
-            st.markdown("<p style='font-size: 16px; color: #94a3b8; font-style: italic;'><strong>Tác giả:</strong> Đặng Thùy Linh &nbsp;|&nbsp; <strong>Ngày đăng:</strong> 04/03/2026 &nbsp;|&nbsp; <strong>Chuyên mục:</strong> Phác đồ điều trị</p>", unsafe_allow_html=True)
-            st.markdown("<hr style='border: 1px solid rgba(56, 189, 248, 0.2); margin: 20px 0;'>", unsafe_allow_html=True)
-            
+            st.markdown('<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
+            st.markdown("<h2 style='color:#0f172a;'>Top 5 phác đồ điều trị mụn trứng cá hiệu quả theo chuẩn y khoa</h2>", unsafe_allow_html=True)
+            st.write("**Tác giả:** TS. BS. Lê Thế Duy | **Ngày đăng:** 04/06/2026 | **Chuyên mục:** Chăm sóc da liễu")
+            st.markdown("---")
             st.markdown("""
-            <div style="font-size: 18px; line-height: 1.8; color: #e2e8f0; text-align: justify;">
-            <p style="font-size: 20px; font-weight: 500; color: #f8fafc; margin-bottom: 25px;">
-            Da liễu là chuyên ngành vừa gần gũi vừa phức tạp — da là tấm chắn đầu tiên của cơ thể và đồng thời phản ánh nhiều vấn đề sức khỏe bên trong. 
-            </p>
-            
-            <p style="margin-bottom: 30px;">
-            Nếu bạn đang tìm tài liệu tin cậy về chẩn đoán và điều trị, bài viết này sẽ là cẩm nang gọn nhẹ: giới thiệu Hướng dẫn Chẩn đoán và Điều trị của Bộ Y tế, Quyết định 4416/QĐ‑BYT (2023). Mục tiêu là giúp bác sĩ, sinh viên y và người quan tâm tiếp cận nhanh nguồn chuẩn.
-            </p>
+            Mụn trứng cá (Acne Vulgaris) là một bệnh lý mãn tính của nang lông tuyến bã, ảnh hưởng đến hơn 80% thanh thiếu niên và người trưởng thành. Việc tự ý nặn mụn hoặc sử dụng các loại "kem trộn" trôi nổi không những không khỏi mà còn để lại hệ lụy sẹo rỗ vĩnh viễn. 
 
-            <h3 style="color: #00f0ff; border-left: 4px solid #00f0ff; padding-left: 15px; margin-top: 35px; margin-bottom: 20px; font-size: 24px;">1. Hướng Dẫn Chẩn Đoán Và Điều Trị Các Bệnh Da Liễu Bộ Y Tế</h3>
-            <p style="margin-bottom: 15px;">
-            Hướng dẫn Chẩn đoán và Điều trị Các Bệnh Da Liễu vừa được <strong>Bộ Y tế ban hành kèm theo Quyết định số 4416/QĐ‑BYT ngày 06/12/2023</strong>, do Bộ trưởng ký. Đây là tài liệu chuyên môn chính thức, nhằm thống nhất tiêu chuẩn chẩn đoán và quy trình điều trị cho các cơ sở y tế trên toàn quốc.
-            </p>
-            <p style="margin-bottom: 30px;">
-            Tài liệu 2023 được xây dựng trên nền tảng các hướng dẫn trước (như Quyết định 75/QĐ‑BYT năm 2015) và cập nhật những kiến thức mới nhất. Cuốn sách gồm nhiều chương, gần 112 mục bài và hơn 600 trang, bao quát hơn 80 bệnh da liễu từ sẩn vảy đến các nhóm bệnh khác, cung cấp hướng dẫn lâm sàng chi tiết.
-            </p>
+            Dưới đây là 5 phác đồ điều trị được Hiệp hội Da liễu Hoa Kỳ (AAD) và Bộ Y tế Việt Nam khuyên dùng:
 
-            <h3 style="color: #00f0ff; border-left: 4px solid #00f0ff; padding-left: 15px; margin-top: 35px; margin-bottom: 20px; font-size: 24px;">2. Quyết Định 4416/QĐ-BYT 2023</h3>
-            <p style="margin-bottom: 30px;">
-            Phiên bản 2023 cập nhật những kiến thức mới nhất về hơn 80 bệnh da liễu, từ các bệnh thường gặp đến những trường hợp chuyên sâu. Nội dung được biên soạn nhằm hỗ trợ bác sĩ lâm sàng và nhân viên y tế thực hiện quyết định điều trị rõ ràng, phù hợp với thực tế tại cơ sở.
-            </p>
+            ### 1. Sử dụng dẫn xuất Vitamin A (Retinol / Tretinoin / Adapalene)
+            Đây được coi là "tiêu chuẩn vàng" trong điều trị mụn trứng cá. 
+            - **Cơ chế:** Kích thích quá trình sừng hóa diễn ra bình thường, đẩy các nhân mụn ẩn sâu dưới da lên bề mặt, đồng thời ngăn chặn việc hình thành các vi nang mới.
+            - **Cách dùng:** Bôi một lớp cực mỏng (cỡ hạt đậu) vào buổi tối. Nên bắt đầu với Adapalene 0.1% (Differin) vì nó ít gây kích ứng nhất.
 
-            <h3 style="color: #00f0ff; border-left: 4px solid #00f0ff; padding-left: 15px; margin-top: 35px; margin-bottom: 20px; font-size: 24px;">3. Phác Đồ Điều Trị Bệnh Da Liễu 2023 - 2024</h3>
-            <p style="margin-bottom: 15px;">
-            Phác đồ bao gồm hướng dẫn cho nhiều nhóm bệnh: các bệnh da do nhiễm khuẩn, do nấm – ký sinh trùng, do virus, cùng các bệnh da tự miễn và nhiều rối loạn khác. Nội dung nhấn mạnh cách chẩn đoán lâm sàng, cận lâm sàng và các lựa chọn điều trị phù hợp theo bằng chứng.
-            </p>
-            <p style="margin-bottom: 30px;">
-            Tài liệu bao quát nhiều bệnh da thường gặp như hạt cơm, bệnh da do vi rút (zona), viêm da tiếp xúc do côn trùng, nấm móng, nấm tóc và các bệnh da — niêm mạc khác. Nội dung hướng dẫn cả phần chẩn đoán và lựa chọn phác đồ điều trị phù hợp theo từng tình huống lâm sàng, giúp cán bộ y tế có cơ sở xử trí thống nhất.
-            </p>
+            ### 2. Sử dụng BHA (Salicylic Acid) để làm sạch sâu
+            Salicylic Acid là một loại axit tan trong dầu. Khác với AHA chỉ hoạt động trên bề mặt, BHA có thể len lỏi sâu vào lỗ chân lông để hòa tan bã nhờn, làm bong các tế bào chết đang bít tắc.
+            - **Lưu ý:** Chỉ nên dùng dung dịch BHA 1-2% khoảng 2-3 lần/tuần để tránh khô da.
 
-            <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid #38bdf8; border-radius: 10px; padding: 25px; margin-top: 40px; box-shadow: 0 4px 15px rgba(56,189,248,0.2);">
-                <p style="color: #38bdf8; font-size: 20px; font-weight: bold; margin-bottom: 10px;">💡 KẾT LUẬN</p>
-                <p style="margin: 0; font-size: 17px; line-height: 1.6;">Bộ tài liệu hướng dẫn chẩn đoán và điều trị các bệnh da liễu — từ Quyết định 4416/QĐ-BYT 2023, các phiên bản PDF và sách chuyên khảo, đến phác đồ cập nhật 2023–2025 là nguồn tham khảo quan trọng cho cả bác sĩ lẫn người bệnh. Việc nắm bắt, tra cứu và áp dụng đúng các phác đồ chính thống giúp nâng cao chất lượng chăm sóc và giảm rủi ro điều trị.</p>
-            </div>
-            </div>
-            """, unsafe_allow_html=True)
+            ### 3. Tiêu diệt vi khuẩn bằng Kháng sinh bôi (Clindamycin) / Benzoyl Peroxide
+            Đối với các nốt mụn sưng đỏ, viêm có mủ (Mụn bọc), việc tiêu diệt vi khuẩn *C. acnes* là ưu tiên hàng đầu.
+            - **Benzoyl Peroxide (BPO):** Giải phóng oxy vào lỗ chân lông, tiêu diệt vi khuẩn kỵ khí. Tuy nhiên BPO làm khô da rất mạnh, chỉ nên chấm trực tiếp lên nốt mụn.
+            - **Clindamycin:** Kháng sinh bôi giúp giảm sưng viêm nhanh chóng. (Khuyến cáo: Luôn kết hợp Clindamycin với BPO để tránh hiện tượng kháng kháng sinh).
+
+            ### 4. Lấy nhân mụn chuẩn Y khoa
+            Việc lấy nhân mụn (Nặn mụn) không chữa khỏi bệnh, nhưng nó giúp giải phóng ổ viêm, rút ngắn thời gian điều trị. 
+            - Tuyệt đối không tự nặn mụn tại nhà bằng tay không vì dễ gây nhiễm trùng.
+            - Hãy đến phòng khám da liễu để các kỹ thuật viên dùng tăm bông và kim vô khuẩn mở đầu mụn chuẩn xác, tránh để lại sẹo thâm và sẹo rỗ.
+
+            ### 5. Phục hồi màng bảo vệ da (Skin Barrier)
+            Tất cả các loại thuốc trị mụn kể trên đều làm da khô, đỏ và bong tróc. Nếu màng bảo vệ da suy yếu, vi khuẩn sẽ càng dễ tấn công trở lại.
+            - Hãy trang bị một tuýp kem dưỡng ẩm chứa các thành phần phục hồi như: Vitamin B5 (Panthenol), Ceramide, Hyaluronic Acid, Niacinamide.
+
+            > **💡 TỔNG KẾT:** Điều trị mụn là một cuộc chiến dài hạn, đòi hỏi sự kiên nhẫn ít nhất 8-12 tuần mới thấy kết quả rõ rệt. Hãy tuân thủ phác đồ của bác sĩ và không nên thay đổi sản phẩm liên tục!
+            """)
         elif page == 'news_detail_2':
             st.markdown('<img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
             st.markdown("<h2 style='color:#0f172a;'>Ung thư Hắc tố (Melanoma): Dấu hiệu sinh tử ABCDE bạn cần biết ngay</h2>", unsafe_allow_html=True)
@@ -1395,28 +1299,26 @@ def show_main_app():
             st.markdown("</div>", unsafe_allow_html=True)
 
     elif page == 'ai':
-        st.markdown("<h1 style='color: #00f0ff; text-align: center; font-size: 48px; font-weight: 900; letter-spacing: 3px; margin-bottom: 40px; text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);'>PHÒNG KHÁM ONLINE: CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</h1>", unsafe_allow_html=True)
+        st.markdown("<div class='card-title'>PHÒNG KHÁM ONLINE: CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</div>", unsafe_allow_html=True)
         
         model, tokenizer, transform, device = load_system()
         if model is None:
             st.error("❌ LỖI: Không tìm thấy hệ thống AI.")
             st.stop()
             
-        col_clinical, col_report = st.columns([1.2, 1], gap="large")
+        col_clinical, col_report = st.columns([1.2, 1], gap="medium")
         
         with col_clinical:
-            st.markdown("<div class='card' style='padding: 40px;'>", unsafe_allow_html=True)
-            st.markdown("<h3 style='color:#00f0ff; font-size: 34px; border-bottom: 3px solid rgba(0, 240, 255, 0.4); padding-bottom: 20px; margin-bottom: 30px;'><span style='font-size: 40px;'>📋</span> NHẬP THÔNG TIN LÂM SÀNG</h3>", unsafe_allow_html=True)
+            st.markdown("<div class='card'>", unsafe_allow_html=True)
+            st.markdown("<h4 style='color:#00f0ff; border-bottom: 1px solid rgba(0, 240, 255, 0.3); padding-bottom: 10px;'>NHẬP THÔNG TIN LÂM SÀNG</h4>", unsafe_allow_html=True)
             
-            st.markdown("<p style='font-size: 24px; color: #f8fafc; font-weight: 600; margin-bottom: 15px;'>Mô tả chi tiết triệu chứng (Bắt buộc):</p>", unsafe_allow_html=True)
             symptom_text = st.text_area(
-                "Mô tả chi tiết triệu chứng:", height=200,
-                placeholder="Ví dụ: Vùng da mẩn đỏ, có cảm giác ngứa ngáy và đau rát nhẹ khi chạm vào...",
-                label_visibility="collapsed"
+                "Mô tả chi tiết triệu chứng:", height=150,
+                placeholder="Ví dụ: Vùng da mẩn đỏ, có cảm giác ngứa ngáy và đau rát nhẹ khi chạm vào..."
             )
             
             st.markdown("<br>", unsafe_allow_html=True)
-            st.markdown("<p style='font-size: 24px; color: #f8fafc; font-weight: 600; margin-bottom: 15px;'>Hình ảnh tổn thương da (Bắt buộc):</p>", unsafe_allow_html=True)
+            st.markdown("**Hình ảnh tổn thương da:**")
             
             img_source = st.radio("Chọn phương thức nhận ảnh:", ["📸 Chụp ảnh từ Camera", "📂 Tải ảnh từ máy tính"], horizontal=True, label_visibility="collapsed")
             
@@ -1440,40 +1342,13 @@ def show_main_app():
             st.markdown("</div>", unsafe_allow_html=True)
             
         with col_report:
-            st.markdown("<div class='card' style='padding: 40px;'>", unsafe_allow_html=True)
-            st.markdown("<h3 style='color:#00f0ff; font-size: 34px; border-bottom: 3px solid rgba(0, 240, 255, 0.4); padding-bottom: 20px; margin-bottom: 30px;'><span style='font-size: 40px;'>🤖</span> KẾT QUẢ TỪ TRÍ TUỆ NHÂN TẠO</h3>", unsafe_allow_html=True)
+            st.markdown("<div class='card'>", unsafe_allow_html=True)
+            st.markdown("<h4 style='color:#00f0ff; border-bottom: 1px solid rgba(0, 240, 255, 0.3); padding-bottom: 10px;'>KẾT QUẢ TỪ TRÍ TUỆ NHÂN TẠO</h4>", unsafe_allow_html=True)
             
             if not uploaded_file or not symptom_text.strip():
-                st.markdown("""
-                <div style='background: rgba(15, 23, 42, 0.8); border: 1px dashed rgba(148, 163, 184, 0.5); padding: 40px; border-radius: 12px; text-align: center; color: #cbd5e1;'>
-                    <span style='font-size: 50px; display: block; margin-bottom: 20px;'>⏳</span>
-                    <p style='font-size: 22px; line-height: 1.6;'>Hệ thống đang chờ hình ảnh và mô tả triệu chứng của bạn để tiến hành phân tích.</p>
-                </div>
-                """, unsafe_allow_html=True)
+                st.info("ℹ️ Hệ thống đang chờ hình ảnh và mô tả triệu chứng của bạn.")
             else:
-                st.markdown("""
-                <style>
-                    .analyze-btn {
-                        background: linear-gradient(90deg, #0284c7, #38bdf8);
-                        color: white !important;
-                        font-size: 26px !important;
-                        font-weight: 800 !important;
-                        padding: 20px 40px;
-                        border-radius: 15px;
-                        border: none;
-                        width: 100%;
-                        cursor: pointer;
-                        box-shadow: 0 4px 20px rgba(56, 189, 248, 0.5);
-                        transition: all 0.3s ease;
-                        letter-spacing: 1px;
-                    }
-                    .analyze-btn:hover {
-                        transform: translateY(-2px);
-                        box-shadow: 0 8px 25px rgba(56, 189, 248, 0.6);
-                    }
-                </style>
-                """, unsafe_allow_html=True)
-                if st.button("🚀 TIẾN HÀNH PHÂN TÍCH", type="primary", use_container_width=True):
+                if st.button("TIẾN HÀNH PHÂN TÍCH", type="primary", use_container_width=True):
                     with st.spinner("Hệ thống AI đang phân tích đa phương thức... Vui lòng đợi..."):
                         img_tensor = transform(image).unsqueeze(0).to(device)
                         tokens = tokenizer(
@@ -1493,25 +1368,20 @@ def show_main_app():
                         
                         # Report Box
                         st.markdown(f"""
-                        <div class="report-card" style="padding: 50px; background: rgba(15, 23, 42, 0.9);">
+                        <div class="report-card">
                             <div class="report-header">
-                                <h2 style="font-size: 40px; letter-spacing: 3px; font-weight: 900;">PHIẾU KẾT QUẢ CHẨN ĐOÁN</h2>
-                                <p style="color:#94a3b8; margin-top:15px; font-size:20px;">Ngày xét nghiệm: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
+                                <h2>PHIẾU KẾT QUẢ CHẨN ĐOÁN</h2>
+                                <p style="color:#64748b; margin:0; font-size:14px;">Ngày xét nghiệm: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
                             </div>
-                            
-                            <p style="margin: 0 0 15px 0; font-size: 24px; color:#cbd5e1; font-weight: 600;">Kết luận sơ bộ:</p>
-                            <div style="background: rgba(0, 240, 255, 0.1); border-left: 8px solid #00f0ff; padding: 30px; border-radius: 10px; margin-bottom: 35px;">
-                                <h3 style="color:#00f0ff; margin: 0; font-size: 45px; font-weight: 900; font-family: 'Orbitron', sans-serif; text-transform: uppercase;">{disease_str}</h3>
+                            <p style="margin:0; font-size:16px; color:#00f0ff;">Kết luận sơ bộ:</p>
+                            <h3 style="color:#00f0ff; margin-top:5px; margin-bottom:15px; font-size: 24px; font-family: 'Orbitron', sans-serif;">{disease_str}</h3>
+                            <div class="severity-{severity}">
+                                {'> NGUY CƠ CAO: Đề nghị đến ngay bệnh viện Da liễu để sinh thiết.' if severity == 'danger' else '> CẢNH BÁO: Rủi ro tổn thương viêm nhiễm. Cần theo dõi thêm.' if severity == 'warning' else '> AN TOÀN: Tổn thương sinh lý Lành tính.'}
                             </div>
-                            
-                            <div class="severity-{severity}" style="font-size: 22px; padding: 25px; border-radius: 10px; line-height: 1.5; font-weight: bold;">
-                                {'> 🚨 NGUY CƠ CAO: Đề nghị đến ngay bệnh viện Da liễu để sinh thiết.' if severity == 'danger' else '> ⚠️ CẢNH BÁO: Rủi ro tổn thương viêm nhiễm. Cần theo dõi thêm.' if severity == 'warning' else '> ✅ AN TOÀN: Tổn thương sinh lý Lành tính.'}
-                            </div>
-                            
-                            <div style="margin-top: 40px; border-top: 3px dashed rgba(0, 240, 255, 0.3); padding-top: 30px;">
-                                <p style="margin:0; font-size: 26px; display:flex; justify-content:space-between; align-items: center; font-weight: bold;">
-                                    <span style="color: #cbd5e1;">Độ tin cậy của AI:</span>
-                                    <strong style="color: #00f0ff; font-size: 45px; text-shadow: 0 0 15px rgba(0,240,255,0.7);">{conf_score:.1f}%</strong>
+                            <div style="margin-top: 20px; border-top: 1px dashed rgba(0, 240, 255, 0.3); padding-top: 15px;">
+                                <p style="margin:0; font-size:16px; display:flex; justify-content:space-between;">
+                                    <span>Độ tin cậy của AI:</span>
+                                    <strong style="color: #00f0ff;">{conf_score:.1f}%</strong>
                                 </p>
                             </div>
                         </div>
