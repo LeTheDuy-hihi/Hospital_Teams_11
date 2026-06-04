@@ -608,6 +608,12 @@ def show_main_app():
         padding: 1.5rem 3rem 5px 3rem; 
         border-bottom: 1px solid rgba(56, 189, 248, 0.3);
         box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        transition: all 0.3s ease-in-out;
+    }
+    
+    /* Làm mượt hành vi cuộn chuột của toàn trang */
+    html, body, [data-testid="stAppViewContainer"] {
+        scroll-behavior: smooth !important;
     }
     
     /* Tạo khoảng trống đẩy nội dung xuống để không bị đè */
