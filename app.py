@@ -81,6 +81,15 @@ st.markdown("""
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
 
+    /* Hiệu ứng Fade-in toàn trang mềm mại */
+    @keyframes softFade {
+        0% { opacity: 0; transform: translateY(10px); filter: blur(2px); }
+        100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    [data-testid="stAppViewBlockContainer"] {
+        animation: softFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
     /* Top Banner / Logo Area */
     .top-header {
         background: linear-gradient(90deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
@@ -131,11 +140,11 @@ st.markdown("""
         text-transform: uppercase;
     }
     div.stButton > button:hover {
-        background: rgba(56, 189, 248, 0.1) !important; 
+        background: rgba(56, 189, 248, 0.15) !important; 
         border-color: #38bdf8 !important;
         color: #fff !important;
-        transform: translateY(-2px);
-        box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 5px 20px rgba(0, 240, 255, 0.4);
     }
 
     /* Label Input */
@@ -171,11 +180,12 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         margin-bottom: 25px;
         height: 100%;
-        transition: transform 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .card:hover {
-        border-left: 3px solid #8a2be2;
-        box-shadow: 0 10px 30px rgba(138, 43, 226, 0.1);
+        border-left: 5px solid #8a2be2;
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(138, 43, 226, 0.25);
     }
     .card-title {
         color: #38bdf8 !important;
