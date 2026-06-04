@@ -1415,12 +1415,22 @@ if st.session_state.get('scroll_to_top', False):
     components.html(
         """
         <script>
-            var appContainer = window.parent.document.querySelector('.stAppViewContainer');
-            if(appContainer) {
-                appContainer.scrollTo({top: 0, behavior: 'smooth'});
-            } else {
+            setTimeout(function() {
+                var doc = window.parent.document;
+                var containers = [
+                    doc.querySelector('[data-testid="stAppViewContainer"]'),
+                    doc.querySelector('.stAppViewContainer'),
+                    doc.querySelector('[data-testid="stMain"]'),
+                    doc.documentElement,
+                    doc.body
+                ];
+                
+                containers.forEach(function(c) {
+                    if (c) { c.scrollTop = 0; }
+                });
+                
                 window.parent.scrollTo({top: 0, behavior: 'smooth'});
-            }
+            }, 100);
         </script>
         """,
         height=0
