@@ -723,6 +723,38 @@ def show_main_app():
             st.markdown("</div>", unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<div class='card-title'>CHUYÊN GIA Y TẾ ĐỒNG HÀNH</div>", unsafe_allow_html=True)
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
+        doc1, doc2 = st.columns([1, 2.5])
+        with doc1:
+            if os.path.exists("doctor_profile.jpg"):
+                st.image("doctor_profile.jpg", use_container_width=True)
+            else:
+                st.markdown("""
+                <div style='background-color: #1e293b; height: 250px; display: flex; align-items: center; justify-content: center; border-radius: 8px;'>
+                    <span style='color: #94a3b8;'>Chưa có ảnh (doctor_profile.jpg)</span>
+                </div>
+                """, unsafe_allow_html=True)
+        with doc2:
+            st.markdown("""
+            <h2 style='color: #00f0ff; margin-bottom: 5px; font-family: "Orbitron", sans-serif;'>TS. BS. LÊ THẾ DUY</h2>
+            <p style='color: #38bdf8; font-size: 18px; font-weight: bold;'>Trưởng khoa Da Liễu - Chuyên gia Ứng dụng AI Y tế</p>
+            
+            <ul style='list-style-type: none; padding-left: 0; line-height: 1.8; font-size: 16px;'>
+                <li>🎓 <b>Học hàm/Học vị:</b> Tiến sĩ (TS)</li>
+                <li>🎂 <b>Năm sinh:</b> 2006</li>
+                <li>📍 <b>Quê quán:</b> Hải Phòng</li>
+                <li>🏥 <b>Chuyên khoa:</b> Da Liễu & Công nghệ Y khoa</li>
+                <li>⭐ <b>Kinh nghiệm:</b> 5 năm trong ngành</li>
+            </ul>
+            
+            <p style='color: #cbd5e1; font-style: italic; border-left: 4px solid #38bdf8; padding-left: 15px;'>
+            "Sứ mệnh của tôi là mang công nghệ Trí tuệ Nhân tạo tiên tiến nhất vào quy trình chẩn đoán y khoa, giúp bệnh nhân tiếp cận dịch vụ y tế chất lượng cao, nhanh chóng và chính xác ngay tại nhà."
+            </p>
+            """, unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
+
+        st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("<div class='card-title'>ĐÁNH GIÁ CỦA NGƯỜI DÙNG VÀ CHUYÊN GIA</div>", unsafe_allow_html=True)
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         r1, r2, r3 = st.columns(3)
