@@ -1035,6 +1035,15 @@ def show_main_app():
             
             uploaded_file = None
             if img_source == "📸 Chụp ảnh từ Camera":
+                mirror_cam = st.checkbox("🔄 Lật Camera (Mirror Mode)", value=False, help="Tắt nếu bạn thấy chữ bị ngược hoặc khó canh chỉnh.")
+                if not mirror_cam:
+                    st.markdown("""
+                    <style>
+                        [data-testid="stCameraInput"] video {
+                            transform: scaleX(1) !important;
+                        }
+                    </style>
+                    """, unsafe_allow_html=True)
                 uploaded_file = st.camera_input("Hướng vùng da bị tổn thương vào camera và chụp")
             else:
                 uploaded_file = st.file_uploader("Chọn file ảnh từ máy tính", type=["jpg", "jpeg", "png"])
