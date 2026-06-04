@@ -619,6 +619,14 @@ def show_main_app():
     # --- ROUTING LOGIC ---
     page = st.session_state.get('page', 'home')
 
+    public_pages = ['home', 'login']
+    if page not in public_pages and not st.session_state.get('logged_in', False):
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
+        st.warning("⚠️ BẠN CẦN ĐĂNG NHẬP ĐỂ XEM CHI TIẾT VÀ SỬ DỤNG TÍNH NĂNG NÀY!")
+        st.info("Vui lòng bấm nút **Đăng nhập / Đăng ký** ở góc trên cùng bên phải.")
+        st.markdown("</div>", unsafe_allow_html=True)
+        page = 'unauthorized'
+
     if page == 'login':
         show_auth_page()
 
@@ -1186,14 +1194,8 @@ def show_main_app():
         st.markdown("</div>", unsafe_allow_html=True)
 
     elif page == 'history':
-        if not st.session_state.get('logged_in', False):
-            st.markdown("<div class='card'>", unsafe_allow_html=True)
-            st.warning("⚠️ BẠN CẦN ĐĂNG NHẬP ĐỂ XEM HỒ SƠ CÁ NHÂN!")
-            st.info("Vui lòng bấm nút **Đăng nhập / Đăng ký** ở góc trên cùng bên phải để trải nghiệm.")
-            st.markdown("</div>", unsafe_allow_html=True)
-        else:
-            st.markdown("<div class='card-title'>HỒ SƠ BỆNH ÁN CÁ NHÂN</div>", unsafe_allow_html=True)
-            st.markdown(f"**Bệnh nhân / Cán bộ:** {st.session_state.user_info['FullName']}")
+        st.markdown("<div class='card-title'>HỒ SƠ BỆNH ÁN CÁ NHÂN</div>", unsafe_allow_html=True)
+        st.markdown(f"**Bệnh nhân / Cán bộ:** {st.session_state.user_info['FullName']}")
         
         history = get_user_history(st.session_state.user_info['UserID'])
         if history:
@@ -1220,13 +1222,7 @@ def show_main_app():
             st.markdown("</div>", unsafe_allow_html=True)
 
     elif page == 'ai':
-        if not st.session_state.get('logged_in', False):
-            st.markdown("<div class='card'>", unsafe_allow_html=True)
-            st.warning("⚠️ BẠN CẦN ĐĂNG NHẬP ĐỂ SỬ DỤNG CHỨC NĂNG NÀY!")
-            st.info("Vui lòng bấm nút **Đăng nhập / Đăng ký** ở góc trên cùng bên phải để trải nghiệm Phòng Khám AI.")
-            st.markdown("</div>", unsafe_allow_html=True)
-        else:
-            st.markdown("<div class='card-title'>PHÒNG KHÁM ONLINE: CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</div>", unsafe_allow_html=True)
+        st.markdown("<div class='card-title'>PHÒNG KHÁM ONLINE: CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</div>", unsafe_allow_html=True)
         
         model, tokenizer, transform, device = load_system()
         if model is None:
