@@ -29,7 +29,16 @@ if 'logged_in' not in st.session_state:
 if 'user_info' not in st.session_state:
     st.session_state.user_info = None
 if 'page' not in st.session_state:
-    st.session_state.page = 'home'
+    st.session_state.page = st.query_params.get("page", "home")
+else:
+    current_url_page = st.query_params.get("page", "home")
+    if current_url_page != st.session_state.page:
+        st.session_state.page = current_url_page
+
+def navigate_to(page_name):
+    st.query_params["page"] = page_name
+    st.session_state.page = page_name
+    st.rerun()
 
 # --- HELPER: LOTTIE ANIMATION ---
 def load_lottieurl(url):
@@ -323,8 +332,7 @@ def show_auth_page():
                         st.session_state.logged_in = True
                         st.session_state.is_admin = False
                         st.session_state.user_info = result
-                        st.session_state.page = 'home'
-                        st.rerun()
+                        navigate_to('home')
                     else:
                         st.error("❌ Lỗi: " + result)
                 else:
@@ -347,8 +355,7 @@ def show_auth_page():
                             if login_success:
                                 st.session_state.logged_in = True
                                 st.session_state.user_info = user_data
-                                st.session_state.page = 'home'
-                                st.rerun()
+                                navigate_to('home')
                         else:
                             st.error("❌ Lỗi: " + msg)
                     else:
@@ -371,8 +378,7 @@ def show_auth_page():
                     st.session_state.logged_in = True
                     st.session_state.is_admin = True
                     st.session_state.user_info = {"UserID": 0, "FullName": "Quản Trị Viên Hệ Thống"}
-                    st.session_state.page = 'admin_users'
-                    st.rerun()
+                    navigate_to('admin_users')
                 else:
                     st.error("❌ Lỗi: Sai tài khoản hoặc mật khẩu Quản trị viên!")
         st.markdown("</div>", unsafe_allow_html=True)
@@ -429,15 +435,15 @@ def show_admin_app():
     # NAVIGATION BAR ADMIN
     nav1, nav2, nav3, nav4, nav5, nav6 = st.columns(6)
     with nav1:
-        if st.button("📊 TỔNG QUAN", use_container_width=True): st.session_state.page = 'admin_dashboard'
+        if st.button("📊 TỔNG QUAN", use_container_width=True): navigate_to('admin_dashboard')
     with nav2:
-        if st.button("👥 NGƯỜI DÙNG", use_container_width=True): st.session_state.page = 'admin_users'
+        if st.button("👥 NGƯỜI DÙNG", use_container_width=True): navigate_to('admin_users')
     with nav3:
-        if st.button("🩺 LỊCH SỬ AI", use_container_width=True): st.session_state.page = 'admin_history'
+        if st.button("🩺 LỊCH SỬ AI", use_container_width=True): navigate_to('admin_history')
     with nav4:
-        if st.button("🤖 TRI THỨC AI", use_container_width=True): st.session_state.page = 'admin_ai'
+        if st.button("🤖 TRI THỨC AI", use_container_width=True): navigate_to('admin_ai')
     with nav5:
-        if st.button("⚙️ CÀI ĐẶT", use_container_width=True): st.session_state.page = 'admin_settings'
+        if st.button("⚙️ CÀI ĐẶT", use_container_width=True): navigate_to('admin_settings')
     with nav6:
         if st.button("🚪 ĐĂNG XUẤT", use_container_width=True): 
             st.session_state.logged_in = False
@@ -589,8 +595,7 @@ def show_main_app():
         st.markdown("<div style='margin-top: 10px;'></div>", unsafe_allow_html=True)
         if not st.session_state.get('logged_in', False):
             if st.button("🔐 ĐĂNG NHẬP / ĐĂNG KÝ", use_container_width=True):
-                st.session_state.page = 'login'
-                st.rerun()
+                navigate_to('login')
         else:
             user_name = st.session_state.get('user_info', {}).get('FullName', 'Bạn')
             st.markdown(f"<div style='text-align: right; margin-bottom: 5px; color: white;'>👤 Chào, <b>{user_name}</b></div>", unsafe_allow_html=True)
@@ -598,21 +603,20 @@ def show_main_app():
                 st.session_state.logged_in = False
                 st.session_state.is_admin = False
                 st.session_state.user_info = None
-                st.session_state.page = 'home'
-                st.rerun()
+                navigate_to('home')
 
     st.markdown("<br>", unsafe_allow_html=True)
     
     # NAVIGATION BAR
     nav1, nav2, nav3, nav4 = st.columns(4)
     with nav1:
-        if st.button("🏠 TRANG CHỦ", use_container_width=True): st.session_state.page = 'home'
+        if st.button("🏠 TRANG CHỦ", use_container_width=True): navigate_to('home')
     with nav2:
-        if st.button("🩺 CHẨN ĐOÁN AI", use_container_width=True): st.session_state.page = 'ai'
+        if st.button("🩺 CHẨN ĐOÁN AI", use_container_width=True): navigate_to('ai')
     with nav3:
-        if st.button("📁 HỒ SƠ", use_container_width=True): st.session_state.page = 'history'
+        if st.button("📁 HỒ SƠ", use_container_width=True): navigate_to('history')
     with nav4:
-        if st.button("📰 TIN TỨC & HỎI ĐÁP", use_container_width=True): st.session_state.page = 'news'
+        if st.button("📰 TIN TỨC & HỎI ĐÁP", use_container_width=True): navigate_to('news')
 
     st.markdown("<hr style='margin-top: 0; border-top: 2px solid #e2e8f0;'>", unsafe_allow_html=True)
 
@@ -652,8 +656,7 @@ def show_main_app():
                 </div>
                 """, unsafe_allow_html=True)
                 if st.button("Đọc chi tiết ➜", key="btn_news1", use_container_width=True):
-                    st.session_state.page = 'news_detail_1'
-                    st.rerun()
+                    navigate_to('news_detail_1')
                 st.markdown("<br>", unsafe_allow_html=True)
                 
                 st.markdown("""
@@ -666,8 +669,7 @@ def show_main_app():
                 </div>
                 """, unsafe_allow_html=True)
                 if st.button("Đọc chi tiết ➜", key="btn_news2", use_container_width=True):
-                    st.session_state.page = 'news_detail_2'
-                    st.rerun()
+                    navigate_to('news_detail_2')
                 st.markdown("<br>", unsafe_allow_html=True)
 
             with c2:
@@ -681,8 +683,7 @@ def show_main_app():
                 </div>
                 """, unsafe_allow_html=True)
                 if st.button("Đọc chi tiết ➜", key="btn_news3", use_container_width=True):
-                    st.session_state.page = 'news_detail_3'
-                    st.rerun()
+                    navigate_to('news_detail_3')
                 st.markdown("<br>", unsafe_allow_html=True)
                 
                 st.markdown("""
@@ -695,28 +696,22 @@ def show_main_app():
                 </div>
                 """, unsafe_allow_html=True)
                 if st.button("Đọc chi tiết ➜", key="btn_news4", use_container_width=True):
-                    st.session_state.page = 'news_detail_4'
-                    st.rerun()
+                    navigate_to('news_detail_4')
                 st.markdown("<br>", unsafe_allow_html=True)
 
         with col_sidebar:
             st.markdown("<div class='card'>", unsafe_allow_html=True)
             st.markdown("<div class='card-title'>CẨM NANG Y TẾ</div>", unsafe_allow_html=True)
             if st.button("Cách nhận biết các loại da", key="camnang_1_btn", use_container_width=True):
-                st.session_state.page = 'camnang_1'
-                st.rerun()
+                navigate_to('camnang_1')
             if st.button("Quy trình Skincare chuẩn Y tế", key="camnang_2_btn", use_container_width=True):
-                st.session_state.page = 'camnang_2'
-                st.rerun()
+                navigate_to('camnang_2')
             if st.button("Các bệnh lý nhiễm trùng da", key="camnang_3_btn", use_container_width=True):
-                st.session_state.page = 'camnang_3'
-                st.rerun()
+                navigate_to('camnang_3')
             if st.button("Chế độ dinh dưỡng cho da mụn", key="camnang_4_btn", use_container_width=True):
-                st.session_state.page = 'camnang_4'
-                st.rerun()
+                navigate_to('camnang_4')
             if st.button("Lưu ý sử dụng Retinol/BHA", key="camnang_5_btn", use_container_width=True):
-                st.session_state.page = 'camnang_5'
-                st.rerun()
+                navigate_to('camnang_5')
             
             st.markdown("<br><div class='card-title'>BỆNH PHỔ BIẾN</div>", unsafe_allow_html=True)
             with st.expander("Dày sừng tiết bã (Benign keratosis)"):
@@ -782,8 +777,7 @@ def show_main_app():
     elif page.startswith('camnang_'):
         st.markdown("<div class='card-title'>CẨM NANG Y TẾ CHUYÊN KHOA</div>", unsafe_allow_html=True)
         if st.button("⬅ Quay lại trang chủ", key="back_from_camnang"):
-            st.session_state.page = 'home'
-            st.rerun()
+            navigate_to('home')
             
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         if page == 'camnang_1':
@@ -939,8 +933,7 @@ def show_main_app():
     elif page.startswith('news_detail_'):
         st.markdown("<div class='card-title'>CHI TIẾT TIN TỨC</div>", unsafe_allow_html=True)
         if st.button("⬅ Quay lại trang chủ"):
-            st.session_state.page = 'home'
-            st.rerun()
+            navigate_to('home')
             
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         if page == 'news_detail_1':
@@ -1104,8 +1097,7 @@ def show_main_app():
             </div>
             """, unsafe_allow_html=True)
             if st.button("Đọc chi tiết ➜", key="news_page_btn1", use_container_width=True):
-                st.session_state.page = 'news_detail_1'
-                st.rerun()
+                navigate_to('news_detail_1')
             
             st.markdown("<br>", unsafe_allow_html=True)
             st.markdown("""
@@ -1118,8 +1110,7 @@ def show_main_app():
             </div>
             """, unsafe_allow_html=True)
             if st.button("Đọc chi tiết ➜", key="news_page_btn3", use_container_width=True):
-                st.session_state.page = 'news_detail_3'
-                st.rerun()
+                navigate_to('news_detail_3')
                 
         with col2:
             st.markdown("""
@@ -1132,8 +1123,7 @@ def show_main_app():
             </div>
             """, unsafe_allow_html=True)
             if st.button("Đọc chi tiết ➜", key="news_page_btn2", use_container_width=True):
-                st.session_state.page = 'news_detail_2'
-                st.rerun()
+                navigate_to('news_detail_2')
                 
             st.markdown("<br>", unsafe_allow_html=True)
             st.markdown("""
@@ -1146,8 +1136,7 @@ def show_main_app():
             </div>
             """, unsafe_allow_html=True)
             if st.button("Đọc chi tiết ➜", key="news_page_btn4", use_container_width=True):
-                st.session_state.page = 'news_detail_4'
-                st.rerun()
+                navigate_to('news_detail_4')
 
         st.markdown("<br><hr style='border-color: rgba(56, 189, 248, 0.2);'><br>", unsafe_allow_html=True)
         st.markdown("<h3 style='color: #38bdf8; margin-bottom: 20px;'>💬 HỎI ĐÁP CÙNG CHUYÊN GIA (FAQ)</h3>", unsafe_allow_html=True)
