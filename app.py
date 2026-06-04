@@ -597,8 +597,8 @@ def show_main_app():
         display: none;
     }
     
-    /* Gắn chặt container chứa marker lên top bằng Fixed Position */
-    div[data-testid="stElementContainer"]:has(.sticky-header-marker) {
+    /* Gắn chặt toàn bộ khối VerticalBlock chứa marker lên top */
+    div[data-testid="stVerticalBlock"]:has(> div[data-testid="stElementContainer"] .sticky-header-marker) {
         position: fixed;
         top: 0;
         left: 0;
@@ -607,15 +607,16 @@ def show_main_app():
         background-color: #0f172a; /* Màu nền app */
         padding: 1.5rem 3rem 10px 3rem; 
         border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
     
-    /* Tạo khoảng trống đẩy nội dung xuống để không bị header đè lên */
+    /* Tạo khoảng trống đẩy nội dung xuống để không bị đè */
     .header-placeholder {
-        height: 220px;
+        height: 250px; /* Chiều cao thực tế của toàn bộ cụm logo + nút */
     }
     
     @media (max-width: 768px) {
-        div[data-testid="stElementContainer"]:has(.sticky-header-marker) {
+        div[data-testid="stVerticalBlock"]:has(> div[data-testid="stElementContainer"] .sticky-header-marker) {
             padding: 1rem 1.5rem 10px 1.5rem; 
         }
         .header-placeholder {
