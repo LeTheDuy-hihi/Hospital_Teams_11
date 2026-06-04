@@ -108,7 +108,7 @@ st.markdown("""
         font-weight: 900;
         text-transform: uppercase;
         margin: 0;
-        font-size: 48px;
+        font-size: clamp(32px, 2vw + 24px, 64px);
         letter-spacing: 4px;
         text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
         position: relative;
@@ -117,7 +117,7 @@ st.markdown("""
     .top-header p {
         color: #94a3b8;
         margin: 10px 0 0 0;
-        font-size: 16px;
+        font-size: clamp(14px, 0.5vw + 12px, 22px);
         letter-spacing: 2px;
         text-transform: uppercase;
         position: relative;
@@ -132,7 +132,7 @@ st.markdown("""
         border-radius: 8px !important;
         font-family: 'Orbitron', sans-serif !important;
         font-weight: 700 !important;
-        font-size: 16px !important;
+        font-size: clamp(14px, 0.4vw + 12px, 20px) !important;
         letter-spacing: 1px !important;
         padding: 12px 0 !important;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -152,7 +152,7 @@ st.markdown("""
         color: #f8fafc !important;
     }
     p, .stMarkdown p, .stMarkdown li, label, .stText {
-        font-size: 17px !important;
+        font-size: clamp(16px, 0.5vw + 12px, 24px) !important;
         line-height: 1.6 !important;
     }
 
@@ -163,7 +163,7 @@ st.markdown("""
         border-radius: 8px;
         color: #38bdf8 !important;
         font-family: 'Inter', sans-serif !important;
-        font-size: 17px;
+        font-size: clamp(15px, 0.5vw + 12px, 22px);
         padding: 14px;
         transition: all 0.3s ease;
         box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
@@ -194,7 +194,7 @@ st.markdown("""
     .card-title {
         color: #38bdf8 !important;
         font-family: 'Orbitron', sans-serif !important;
-        font-size: 26px;
+        font-size: clamp(22px, 1vw + 16px, 34px);
         border-bottom: 1px solid rgba(56, 189, 248, 0.2);
         padding-bottom: 15px;
         margin-bottom: 25px;
@@ -249,14 +249,14 @@ st.markdown("""
         padding: 20px;
     }
     .article-title {
-        font-size: 22px;
+        font-size: clamp(20px, 0.8vw + 14px, 30px);
         color: #e2e8f0;
         font-weight: 600;
         margin-bottom: 12px;
         line-height: 1.4;
     }
     .article-excerpt {
-        font-size: 16px;
+        font-size: clamp(15px, 0.5vw + 12px, 22px);
         color: #94a3b8;
         line-height: 1.6;
     }
