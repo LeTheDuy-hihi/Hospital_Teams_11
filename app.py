@@ -707,6 +707,25 @@ def show_main_app():
         # Hero Banner Tech
         st.markdown('<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">', unsafe_allow_html=True)
         
+        # --- NEW SECTION: QUY TRÌNH CHẨN ĐOÁN ---
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<div class='card-title'>QUY TRÌNH KHÁM & CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</div>", unsafe_allow_html=True)
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
+        step1, step2, step3 = st.columns(3, gap="large")
+        with step1:
+            st.markdown('<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
+            st.markdown("<h4 style='color: #38bdf8; text-align: center;'>Bước 1: Tiếp nhận Hình ảnh</h4>", unsafe_allow_html=True)
+            st.write("Bệnh nhân tự chụp ảnh vùng da bị tổn thương bằng điện thoại hoặc tải lên hệ thống từ kết quả khám lâm sàng.")
+        with step2:
+            st.markdown('<img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
+            st.markdown("<h4 style='color: #38bdf8; text-align: center;'>Bước 2: AI Phân tích</h4>", unsafe_allow_html=True)
+            st.write("Mô hình Trí tuệ nhân tạo học sâu (Deep Learning) quét hình ảnh và triệu chứng lâm sàng để nhận diện 7 loại bệnh lý da liễu.")
+        with step3:
+            st.markdown('<img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
+            st.markdown("<h4 style='color: #38bdf8; text-align: center;'>Bước 3: Bác sĩ tư vấn</h4>", unsafe_allow_html=True)
+            st.write("Kết quả AI được trả về trong vài giây. Bác sĩ chuyên khoa sẽ dựa vào đó để đưa ra phác đồ điều trị chính xác và tư vấn trực tuyến.")
+        st.markdown("</div>", unsafe_allow_html=True)
+
         st.markdown("<br>", unsafe_allow_html=True)
         col_main, col_sidebar = st.columns([2.5, 1], gap="large")
         
