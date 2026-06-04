@@ -1113,30 +1113,48 @@ def show_main_app():
             
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         if page == 'news_detail_1':
-            st.markdown('<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2 style='color:#0f172a;'>Hướng Dẫn Chẩn Đoán Và Điều Trị Bệnh Da Liễu - Bộ Y Tế</h2>", unsafe_allow_html=True)
-            st.write("**Tác giả:** Đặng Thùy Linh | **Ngày đăng:** 04/03/2026 | **Chuyên mục:** Phác đồ điều trị")
-            st.markdown("---")
+            st.markdown('<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:450px; object-fit:cover; border-radius:12px; margin-bottom:25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">', unsafe_allow_html=True)
+            st.markdown("<h1 style='color:#38bdf8; font-size: 34px; font-weight: bold; margin-bottom: 15px; line-height: 1.3;'>Hướng Dẫn Chẩn Đoán Và Điều Trị Bệnh Da Liễu - Bộ Y Tế</h1>", unsafe_allow_html=True)
+            st.markdown("<p style='font-size: 16px; color: #94a3b8; font-style: italic;'><strong>Tác giả:</strong> Đặng Thùy Linh &nbsp;|&nbsp; <strong>Ngày đăng:</strong> 04/03/2026 &nbsp;|&nbsp; <strong>Chuyên mục:</strong> Phác đồ điều trị</p>", unsafe_allow_html=True)
+            st.markdown("<hr style='border: 1px solid rgba(56, 189, 248, 0.2); margin: 20px 0;'>", unsafe_allow_html=True)
+            
             st.markdown("""
+            <div style="font-size: 18px; line-height: 1.8; color: #e2e8f0; text-align: justify;">
+            <p style="font-size: 20px; font-weight: 500; color: #f8fafc; margin-bottom: 25px;">
             Da liễu là chuyên ngành vừa gần gũi vừa phức tạp — da là tấm chắn đầu tiên của cơ thể và đồng thời phản ánh nhiều vấn đề sức khỏe bên trong. 
+            </p>
             
+            <p style="margin-bottom: 30px;">
             Nếu bạn đang tìm tài liệu tin cậy về chẩn đoán và điều trị, bài viết này sẽ là cẩm nang gọn nhẹ: giới thiệu Hướng dẫn Chẩn đoán và Điều trị của Bộ Y tế, Quyết định 4416/QĐ‑BYT (2023). Mục tiêu là giúp bác sĩ, sinh viên y và người quan tâm tiếp cận nhanh nguồn chuẩn.
+            </p>
 
-            ### 1. Hướng Dẫn Chẩn Đoán Và Điều Trị Các Bệnh Da Liễu Bộ Y Tế
-            Hướng dẫn Chẩn đoán và Điều trị Các Bệnh Da Liễu vừa được Bộ Y tế ban hành kèm theo Quyết định số 4416/QĐ‑BYT ngày 06/12/2023, do Bộ trưởng ký. Đây là tài liệu chuyên môn chính thức, nhằm thống nhất tiêu chuẩn chẩn đoán và quy trình điều trị cho các cơ sở y tế trên toàn quốc.
-            
+            <h3 style="color: #00f0ff; border-left: 4px solid #00f0ff; padding-left: 15px; margin-top: 35px; margin-bottom: 20px; font-size: 24px;">1. Hướng Dẫn Chẩn Đoán Và Điều Trị Các Bệnh Da Liễu Bộ Y Tế</h3>
+            <p style="margin-bottom: 15px;">
+            Hướng dẫn Chẩn đoán và Điều trị Các Bệnh Da Liễu vừa được <strong>Bộ Y tế ban hành kèm theo Quyết định số 4416/QĐ‑BYT ngày 06/12/2023</strong>, do Bộ trưởng ký. Đây là tài liệu chuyên môn chính thức, nhằm thống nhất tiêu chuẩn chẩn đoán và quy trình điều trị cho các cơ sở y tế trên toàn quốc.
+            </p>
+            <p style="margin-bottom: 30px;">
             Tài liệu 2023 được xây dựng trên nền tảng các hướng dẫn trước (như Quyết định 75/QĐ‑BYT năm 2015) và cập nhật những kiến thức mới nhất. Cuốn sách gồm nhiều chương, gần 112 mục bài và hơn 600 trang, bao quát hơn 80 bệnh da liễu từ sẩn vảy đến các nhóm bệnh khác, cung cấp hướng dẫn lâm sàng chi tiết.
+            </p>
 
-            ### 2. Quyết Định 4416/QĐ-BYT 2023 
+            <h3 style="color: #00f0ff; border-left: 4px solid #00f0ff; padding-left: 15px; margin-top: 35px; margin-bottom: 20px; font-size: 24px;">2. Quyết Định 4416/QĐ-BYT 2023</h3>
+            <p style="margin-bottom: 30px;">
             Phiên bản 2023 cập nhật những kiến thức mới nhất về hơn 80 bệnh da liễu, từ các bệnh thường gặp đến những trường hợp chuyên sâu. Nội dung được biên soạn nhằm hỗ trợ bác sĩ lâm sàng và nhân viên y tế thực hiện quyết định điều trị rõ ràng, phù hợp với thực tế tại cơ sở.
+            </p>
 
-            ### 3. Phác Đồ Điều Trị Bệnh Da Liễu 2023 - 2024
+            <h3 style="color: #00f0ff; border-left: 4px solid #00f0ff; padding-left: 15px; margin-top: 35px; margin-bottom: 20px; font-size: 24px;">3. Phác Đồ Điều Trị Bệnh Da Liễu 2023 - 2024</h3>
+            <p style="margin-bottom: 15px;">
             Phác đồ bao gồm hướng dẫn cho nhiều nhóm bệnh: các bệnh da do nhiễm khuẩn, do nấm – ký sinh trùng, do virus, cùng các bệnh da tự miễn và nhiều rối loạn khác. Nội dung nhấn mạnh cách chẩn đoán lâm sàng, cận lâm sàng và các lựa chọn điều trị phù hợp theo bằng chứng.
-            
+            </p>
+            <p style="margin-bottom: 30px;">
             Tài liệu bao quát nhiều bệnh da thường gặp như hạt cơm, bệnh da do vi rút (zona), viêm da tiếp xúc do côn trùng, nấm móng, nấm tóc và các bệnh da — niêm mạc khác. Nội dung hướng dẫn cả phần chẩn đoán và lựa chọn phác đồ điều trị phù hợp theo từng tình huống lâm sàng, giúp cán bộ y tế có cơ sở xử trí thống nhất.
+            </p>
 
-            > **💡 KẾT LUẬN:** Bộ tài liệu hướng dẫn chẩn đoán và điều trị các bệnh da liễu — từ Quyết định 4416/QĐ-BYT 2023, các phiên bản PDF và sách chuyên khảo, đến phác đồ cập nhật 2023–2025 là nguồn tham khảo quan trọng cho cả bác sĩ lẫn người bệnh. Việc nắm bắt, tra cứu và áp dụng đúng các phác đồ chính thống giúp nâng cao chất lượng chăm sóc và giảm rủi ro điều trị.
-            """)
+            <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid #38bdf8; border-radius: 10px; padding: 25px; margin-top: 40px; box-shadow: 0 4px 15px rgba(56,189,248,0.2);">
+                <p style="color: #38bdf8; font-size: 20px; font-weight: bold; margin-bottom: 10px;">💡 KẾT LUẬN</p>
+                <p style="margin: 0; font-size: 17px; line-height: 1.6;">Bộ tài liệu hướng dẫn chẩn đoán và điều trị các bệnh da liễu — từ Quyết định 4416/QĐ-BYT 2023, các phiên bản PDF và sách chuyên khảo, đến phác đồ cập nhật 2023–2025 là nguồn tham khảo quan trọng cho cả bác sĩ lẫn người bệnh. Việc nắm bắt, tra cứu và áp dụng đúng các phác đồ chính thống giúp nâng cao chất lượng chăm sóc và giảm rủi ro điều trị.</p>
+            </div>
+            </div>
+            """, unsafe_allow_html=True)
         elif page == 'news_detail_2':
             st.markdown('<img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
             st.markdown("<h2 style='color:#0f172a;'>Ung thư Hắc tố (Melanoma): Dấu hiệu sinh tử ABCDE bạn cần biết ngay</h2>", unsafe_allow_html=True)
