@@ -4,7 +4,7 @@ from streamlit_lottie import st_lottie
 import torch
 from torchvision import transforms
 from transformers import AutoTokenizer
-from PIL import Image
+from PIL import Image, ImageEnhance
 import os
 import pandas as pd
 from datetime import datetime
@@ -1041,7 +1041,15 @@ def show_main_app():
             
             if uploaded_file:
                 image = Image.open(uploaded_file).convert('RGB')
-                st.image(image, caption="Hình ảnh đã nhận", use_container_width=True)
+                
+                # Tăng cường chất lượng ảnh chụp từ Camera
+                if img_source == "📸 Chụp ảnh từ Camera":
+                    enhancer_sharp = ImageEnhance.Sharpness(image)
+                    image = enhancer_sharp.enhance(2.5) # Tăng độ nét
+                    enhancer_contrast = ImageEnhance.Contrast(image)
+                    image = enhancer_contrast.enhance(1.2) # Tăng độ tương phản
+                    
+                st.image(image, caption="Hình ảnh đã nhận (Đã tối ưu hóa độ nét)", use_container_width=True)
             st.markdown("</div>", unsafe_allow_html=True)
             
         with col_report:
