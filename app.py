@@ -1035,12 +1035,13 @@ def show_main_app():
             
             uploaded_file = None
             if img_source == "📸 Chụp ảnh từ Camera":
-                mirror_cam = st.checkbox("🔄 Lật Camera (Mirror Mode)", value=False, help="Tắt nếu bạn thấy chữ bị ngược hoặc khó canh chỉnh.")
+                mirror_cam = st.checkbox("🔄 Lật Camera (Mirror Mode)", value=False, help="Chế độ soi gương")
                 if not mirror_cam:
                     st.markdown("""
                     <style>
-                        [data-testid="stCameraInput"] video {
+                        video {
                             transform: scaleX(1) !important;
+                            -webkit-transform: scaleX(1) !important;
                         }
                     </style>
                     """, unsafe_allow_html=True)
@@ -1050,6 +1051,9 @@ def show_main_app():
             
             if uploaded_file:
                 image = Image.open(uploaded_file).convert('RGB')
+                if img_source == "📸 Chụp ảnh từ Camera" and mirror_cam:
+                    from PIL import ImageOps
+                    image = ImageOps.mirror(image)
                 st.image(image, caption="Hình ảnh đã nhận", use_container_width=True)
             st.markdown("</div>", unsafe_allow_html=True)
             
