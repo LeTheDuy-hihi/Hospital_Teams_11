@@ -1,0 +1,14 @@
+torch
+torchvision
+transformers
+streamlit
+pandas
+numpy
+matplotlib
+scikit-learn
+scikit-image
+pillow
+tqdm
+bcrypt
+streamlit-lottie
+gdown
