@@ -1007,7 +1007,7 @@ def show_main_app():
             """)
         elif page == 'news_detail_3':
             st.markdown('<img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2 style='color:#0f172a;'>Tác hại "âm thầm" của tia UV và Hướng dẫn chọn kem chống nắng chuẩn y khoa</h2>", unsafe_allow_html=True)
+            st.markdown("""<h2 style='color:#0f172a;'>Tác hại "âm thầm" của tia UV và Hướng dẫn chọn kem chống nắng chuẩn y khoa</h2>""", unsafe_allow_html=True)
             st.write("**Tác giả:** Ban biên tập | **Ngày đăng:** 01/06/2026 | **Chuyên mục:** Kiến thức làm đẹp")
             st.markdown("---")
             st.markdown("""
