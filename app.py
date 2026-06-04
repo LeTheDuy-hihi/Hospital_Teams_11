@@ -21,7 +21,8 @@ if 'src.database' in sys.modules:
 from src.database import register_user, login_user, save_diagnosis, get_user_history, get_all_users, get_all_history
 
 # Cấu hình trang (phải gọi đầu tiên)
-st.set_page_config(page_title="Hospital teams 11 - AI Diagnostics", page_icon="🌿", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Hospital teams 11 - AI Diagnostics", page_icon="profile/logo.jpg", layout="wide", initial_sidebar_state="collapsed")
+st.logo("profile/logo.jpg")
 
 # --- KHỞI TẠO SESSION STATE ---
 if 'logged_in' not in st.session_state:
