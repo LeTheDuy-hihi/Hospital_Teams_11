@@ -711,15 +711,20 @@ def show_main_app():
                 st.rerun()
             
             st.markdown("<br><div class='card-title'>BỆNH PHỔ BIẾN</div>", unsafe_allow_html=True)
-            st.markdown("""
-            - Dày sừng tiết bã (Benign keratosis)
-            - Nốt ruồi (Melanocytic nevi)
-            - U xơ da (Dermatofibroma)
-            - Ung thư hắc tố (Melanoma)
-            - Tổn thương mạch máu
-            - Ung thư biểu mô tế bào đáy
-            - Dày sừng quang hóa
-            """, unsafe_allow_html=True)
+            with st.expander("Dày sừng tiết bã (Benign keratosis)"):
+                st.write("Khối u da lành tính, thường có màu nâu/đen và nổi sần sùi như sáp trên bề mặt da. Thường xuất hiện ở người lớn tuổi do quá trình lão hóa.")
+            with st.expander("Nốt ruồi (Melanocytic nevi)"):
+                st.write("Sự tập trung của các tế bào hắc tố tạo thành các đốm màu. Đa số lành tính, nhưng cần theo dõi quy tắc ABCDE để phòng ngừa ung thư.")
+            with st.expander("U xơ da (Dermatofibroma)"):
+                st.write("Nốt sần nhỏ, cứng, thường có màu nâu hoặc hồng. Rất phổ biến ở chân tay, thường do vết côn trùng cắn hoặc chấn thương nhỏ để lại.")
+            with st.expander("Ung thư hắc tố (Melanoma) ⚠️"):
+                st.write("Dạng ung thư da nguy hiểm nhất. Tiến triển cực nhanh và có thể di căn. Phát hiện sớm bằng AI là chìa khóa sống còn.")
+            with st.expander("Tổn thương mạch máu"):
+                st.write("Bao gồm u máu, giãn mao mạch... Các đốm hoặc mảng đỏ do mạch máu phát triển bất thường dưới da.")
+            with st.expander("Ung thư biểu mô tế bào đáy ⚠️"):
+                st.write("Ung thư da phổ biến nhất. Phát triển chậm, ít di căn nhưng có thể gây tổn thương mô xung quanh nếu không được cắt bỏ.")
+            with st.expander("Dày sừng quang hóa"):
+                st.write("Tiền ung thư da. Tổn thương đóng vảy sần sùi ở những vùng da tiếp xúc nhiều với ánh nắng mặt trời (mặt, tay, cổ).")
             st.markdown("</div>", unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
@@ -774,71 +779,152 @@ def show_main_app():
             
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         if page == 'camnang_1':
-            st.markdown('<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:250px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2>Cách nhận biết các loại da cơ bản</h2>", unsafe_allow_html=True)
+            st.markdown('<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
+            st.markdown("<h2>Cách nhận biết và phân loại các loại da cơ bản</h2>", unsafe_allow_html=True)
             st.markdown("""
-            Việc nhận biết đúng loại da của mình là bước đầu tiên và quan trọng nhất trong chu trình chăm sóc da (Skincare).
-            - **Da thường (Normal Skin):** Độ ẩm cân bằng, lỗ chân lông nhỏ, ít nổi mụn.
-            - **Da khô (Dry Skin):** Bề mặt da thô ráp, căng bong tróc, đặc biệt vào mùa đông. Dễ xuất hiện nếp nhăn sớm.
-            - **Da dầu (Oily Skin):** Bề mặt da luôn bóng nhờn, lỗ chân lông to, thường xuyên gặp vấn đề về mụn trứng cá và mụn đầu đen.
-            - **Da hỗn hợp (Combination Skin):** Đổ nhiều dầu ở vùng chữ T (trán, mũi, cằm) nhưng lại khô hoặc bình thường ở vùng chữ U (hai bên má).
-            - **Da nhạy cảm (Sensitive Skin):** Rất mỏng, dễ bị đỏ rát, châm chích khi tiếp xúc với mỹ phẩm mới hoặc thời tiết thay đổi.
-            
-            **Mẹo nhỏ:** Hãy rửa mặt sạch, để mặt mộc trong 30 phút và dùng giấy thấm dầu áp lên các vùng trên mặt để kiểm tra lượng dầu tiết ra nhé!
+            Việc thấu hiểu đúng tình trạng và phân loại da của bản thân là bước đầu tiên và quan trọng nhất trong việc xây dựng một chu trình chăm sóc da khoa học. Nếu nhận diện sai, bạn có thể sử dụng sai sản phẩm, dẫn đến kích ứng, bùng phát mụn, hoặc làm da lão hóa nhanh hơn.
+
+            Theo chuẩn y khoa Da Liễu, làn da con người thường được chia làm 5 loại cơ bản. Hãy cùng tìm hiểu chi tiết:
+
+            ### 1. Da thường (Normal Skin)
+            Đây là tình trạng da lý tưởng nhất mà ai cũng mơ ước.
+            - **Đặc điểm:** Bề mặt da mịn màng, lỗ chân lông rất nhỏ (hầu như không thấy rõ), độ ẩm và lượng dầu tiết ra luôn ở mức cân bằng. Da ít khi nhạy cảm với các yếu tố môi trường.
+            - **Cách chăm sóc:** Bạn chỉ cần duy trì làm sạch cơ bản, dưỡng ẩm vừa đủ và tuyệt đối không quên kem chống nắng.
+
+            ### 2. Da khô (Dry Skin)
+            - **Đặc điểm:** Da có cảm giác căng, thô ráp, thậm chí bong tróc vảy trắng (đặc biệt vào mùa đông). Rất hiếm khi nổi mụn nhưng lại xuất hiện nếp nhăn (lão hóa) sớm nhất trong các loại da.
+            - **Nguyên nhân:** Lớp màng lipid bảo vệ tự nhiên bị tổn thương, không giữ được nước.
+            - **Cách chăm sóc:** Ưu tiên các sản phẩm cấp ẩm sâu (Hyaluronic Acid, Ceramide). Hạn chế rửa mặt bằng nước quá nóng hoặc dùng sữa rửa mặt tạo bọt mạnh (chứa nhiều sulfate).
+
+            ### 3. Da dầu (Oily Skin)
+            - **Đặc điểm:** Toàn bộ khuôn mặt luôn trong trạng thái bóng nhờn, lỗ chân lông to rệt. Đây là "mảnh đất màu mỡ" cho vi khuẩn P.acnes sinh sôi, gây mụn trứng cá, mụn viêm, mụn đầu đen.
+            - **Ưu điểm bù đắp:** Tốc độ lão hóa chậm hơn da khô, ít hình thành nếp nhăn.
+            - **Cách chăm sóc:** Chú trọng bước làm sạch kép (Double Cleansing) và tẩy da chết hóa học (BHA). Nên chọn các loại kem dưỡng dạng Gel mỏng nhẹ (Oil-free).
+
+            ### 4. Da hỗn hợp (Combination Skin)
+            Loại da phổ biến nhất ở Việt Nam (Khí hậu nhiệt đới).
+            - **Đặc điểm:** Vùng chữ T (Trán, Mũi, Cằm) đổ rất nhiều dầu và dễ bị mụn, nhưng vùng chữ U (Hai bên má) lại khô hoặc bình thường.
+            - **Cách chăm sóc:** Phải áp dụng quy tắc "chia để trị". Dùng mặt nạ đất sét hút dầu ở vùng chữ T, và bôi kem dưỡng ẩm dày hơn ở vùng hai bên má.
+
+            ### 5. Da nhạy cảm (Sensitive Skin)
+            - **Đặc điểm:** Da rất mỏng, thường nhìn rõ các mao mạch máu dưới da. Cực kỳ dễ phản ứng (đỏ rát, ngứa ngáy, nổi mẩn) khi đổi thời tiết, nước sinh hoạt, hoặc dùng mỹ phẩm lạ.
+            - **Cách chăm sóc:** Tối giản hóa chu trình skincare. Tránh xa các thành phần chứa cồn khô (Alcohol), hương liệu (Fragrance), và các loại acid tẩy da chết nồng độ cao.
+
+            > **💡 Bài test xác định loại da tại nhà:**
+            > Rửa mặt thật sạch bằng sữa rửa mặt dịu nhẹ. Tuyệt đối không bôi thêm bất kỳ sản phẩm nào. Đợi 30 phút trong phòng nhiệt độ bình thường.
+            > Sau 30 phút, dùng giấy thấm dầu áp lên 4 điểm: Trán, Mũi, 2 Má.
+            > - Nếu giấy không dính dầu: Da thường hoặc Da khô.
+            > - Nếu cả 4 tờ giấy đều ướt sũng dầu: Da dầu.
+            > - Nếu chỉ ướt tờ ở Trán và Mũi: Da hỗn hợp.
             """)
+            
         elif page == 'camnang_2':
-            st.markdown('<img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:250px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2>Quy trình Skincare chuẩn Y khoa</h2>", unsafe_allow_html=True)
+            st.markdown('<img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
+            st.markdown("<h2>Quy trình Skincare chuẩn Y khoa: Đơn giản mà Hiệu quả</h2>", unsafe_allow_html=True)
             st.markdown("""
-            Một chu trình chăm sóc da chuẩn y khoa không cần quá cầu kỳ, chỉ cần tập trung vào 3 bước cốt lõi: Làm sạch - Dưỡng ẩm - Bảo vệ.
-            
-            1. **Làm sạch (Cleansing):**
-               - *Sáng:* Rửa mặt bằng sữa rửa mặt dịu nhẹ.
-               - *Tối:* Double Cleansing (Tẩy trang -> Sữa rửa mặt) để loại bỏ kem chống nắng và bụi bẩn.
-            2. **Đặc trị (Treatment) - Tùy chọn:** Sử dụng serum đặc trị (Vitamin C cho ban sáng, Retinol/BHA cho ban đêm) tùy thuộc vào tình trạng da.
-            3. **Dưỡng ẩm (Moisturizing):** Khóa ẩm bằng kem dưỡng hoặc gel dưỡng. (Da dầu ưu tiên gel mỏng nhẹ).
-            4. **Bảo vệ (Sun Protection - Ban ngày):** Kem chống nắng là lớp giáp bảo vệ cực kỳ quan trọng giúp da chống lại tia UV gây lão hóa và ung thư.
+            Giữa "rừng" thông tin về các bước chăm sóc da 7 bước, 10 bước kiểu Hàn Quốc, các chuyên gia Da liễu thường khuyên bệnh nhân quay về với những giá trị cốt lõi nhất. Một chu trình dư thừa không những làm lãng phí tiền bạc mà còn gây "bội thực" dưỡng chất, dẫn đến bít tắc và viêm da.
+
+            Chu trình chuẩn Y khoa được tóm gọn trong 3 nguyên tắc sống còn: **Làm sạch – Điều trị/Dưỡng ẩm – Bảo vệ**.
+
+            ### 🌅 CHU TRÌNH BUỔI SÁNG (Morning Routine)
+            Mục tiêu buổi sáng là bảo vệ làn da khỏi các tác nhân ngoại cảnh (Tia UV, Khói bụi).
+            1. **Sữa rửa mặt:** Dùng loại dịu nhẹ (pH từ 5.0 - 5.5) để lấy đi lớp bã nhờn sinh ra trong lúc ngủ mà không làm tổn thương màng bảo vệ da.
+            2. **Toner (Tùy chọn):** Nước hoa hồng giúp cân bằng lại độ pH và làm bước đệm cho các sản phẩm sau thẩm thấu tốt hơn.
+            3. **Serum chống oxy hóa:** Khuyên dùng Serum Vitamin C. Vitamin C khi kết hợp với kem chống nắng sẽ nhân đôi sức mạnh bảo vệ da khỏi gốc tự do.
+            4. **Kem dưỡng ẩm:** Lựa chọn loại kết cấu mỏng nhẹ. Nếu kem chống nắng của bạn đã có đủ độ ẩm, có thể bỏ qua bước này.
+            5. **Kem chống nắng (BẮT BUỘC):** Là lớp giáp bảo vệ quan trọng nhất. Sử dụng loại phổ rộng (Broad Spectrum), SPF >= 30.
+
+            ### 🌃 CHU TRÌNH BUỔI TỐI (Evening Routine)
+            Mục tiêu buổi tối là làm sạch sâu và tái tạo, phục hồi da.
+            1. **Tẩy trang (Makeup Remover):** Dù bạn không trang điểm mà chỉ bôi kem chống nắng, bước này vẫn bắt buộc. Nước tẩy trang (Micellar Water) cho da nhạy cảm/dầu, Sáp hoặc Dầu tẩy trang cho da khô.
+            2. **Sữa rửa mặt (Cleanser):** Bước làm sạch lần 2 (Double Cleansing) để đảm bảo lỗ chân lông thông thoáng hoàn toàn.
+            3. **Tẩy tế bào chết hóa học (AHA/BHA):** Dùng 2-3 lần/tuần. Giúp làm bạt sừng, tan bã nhờn trong lỗ chân lông.
+            4. **Sản phẩm đặc trị (Treatment):** Tùy tình trạng da. Ví dụ: Chấm mụn viêm bằng Benzoyl Peroxide, hoặc bôi Retinol/Tretinoin toàn mặt để chống lão hóa.
+            5. **Kem dưỡng ẩm phục hồi (Moisturizer):** Khóa lại toàn bộ dưỡng chất bên dưới. Ưu tiên chứa các thành phần phục hồi màng bảo vệ như B5, Ceramide, Peptide.
+
+            > **⚠️ Lưu ý quan trọng:** Hãy luôn để da mặt hơi ẩm trước khi bôi Serum cấp nước (như HA), nhưng phải để mặt khô hoàn toàn mới được bôi Retinol/BHA để tránh tăng khả năng kích ứng.
             """)
+            
         elif page == 'camnang_3':
-            st.markdown('<img src="https://images.unsplash.com/photo-1612450849202-0c9f1dcb89d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:250px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2>Các bệnh lý nhiễm trùng da thường gặp</h2>", unsafe_allow_html=True)
+            st.markdown('<img src="https://images.unsplash.com/photo-1612450849202-0c9f1dcb89d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
+            st.markdown("<h2>Tổng quan các bệnh lý nhiễm trùng da thường gặp</h2>", unsafe_allow_html=True)
             st.markdown("""
-            Da là lớp màng bảo vệ lớn nhất của cơ thể, vì vậy rất dễ bị tấn công bởi vi khuẩn, nấm hoặc virus:
-            
-            - **Viêm nang lông:** Do tắc nghẽn lỗ chân lông hoặc nhiễm khuẩn Staphylococcus. Thường biểu hiện bằng các nốt sẩn đỏ quanh nang lông.
-            - **Nhiễm nấm da (Hắc lào, Lang ben):** Gây ngứa rát, da đóng vảy hoặc mảng thay đổi màu sắc.
-            - **Chốc lở (Impetigo):** Bệnh nhiễm trùng do vi khuẩn ở lớp nông của da, dễ lây lan, thường có vảy màu vàng mật ong.
-            - **Mụn rộp (Herpes Simplex):** Do virus HSV gây ra, tạo thành các cụm mụn nước đau rát thường ở quanh miệng.
-            
-            *Khuyến cáo:* Khi nghi ngờ nhiễm trùng, KHÔNG tự ý bôi thuốc corticoid. Hãy sử dụng hệ thống AI của chúng tôi để kiểm tra sơ bộ và đến gặp Bác sĩ chuyên khoa.
+            Làn da được xem như tấm khiên chắn khổng lồ bảo vệ cơ thể khỏi môi trường khắc nghiệt bên ngoài. Vì tiếp xúc liên tục với khói bụi, mồ hôi và các mầm bệnh, việc da bị nhiễm trùng là điều rất dễ xảy ra. Nhiễm trùng da được chia làm 3 nhóm chính: Nhiễm Vi khuẩn, Nhiễm Nấm, và Nhiễm Virus.
+
+            ### 1. Nhiễm trùng do Vi khuẩn
+            - **Viêm nang lông (Folliculitis):** Nguyên nhân chủ yếu do vi khuẩn tụ cầu (Staphylococcus). Biểu hiện là các sẩn mủ đỏ li ti mọc ngay tại lỗ chân lông, gây ngứa hoặc đau rát. Thường gặp ở vùng cằm (do cạo râu), lưng, ngực.
+            - **Chốc lở (Impetigo):** Cực kỳ dễ lây lan, thường gặp ở trẻ em. Biểu hiện là các bọng nước vỡ ra, để lại lớp vảy dày màu vàng óng (giống mật ong) trên da.
+
+            ### 2. Nhiễm trùng do Nấm (Fungal Infections)
+            Nấm rất ưa thích những môi trường ẩm ướt, kín gió và nhiều mồ hôi.
+            - **Hắc lào (Tinea Corporis):** Tổn thương ban đầu là vệt đỏ, sau đó lan rộng tạo thành hình vòng cung/đồng tiền, ở rìa có nhiều mụn nước nhỏ li ti. Rất ngứa, đặc biệt là khi đổ mồ hôi.
+            - **Lang ben (Pityriasis Versicolor):** Do vi nấm Malassezia phát triển quá mức. Da xuất hiện các mảng màu trắng, hồng hoặc nâu, khác biệt rõ rệt so với vùng da xung quanh. Đôi khi có vảy mịn trên bề mặt.
+
+            ### 3. Nhiễm trùng do Virus
+            - **Mụn rộp sinh dục / Mụn rộp quanh miệng (Herpes Simplex):** Virus HSV lây truyền qua tiếp xúc trực tiếp. Bệnh bắt đầu bằng cảm giác râm ran, sau đó nổi các chùm mụn nước nhỏ trên nền da đỏ. Khi vỡ sẽ gây loét và đóng vảy. Bệnh không thể chữa khỏi dứt điểm mà virus sẽ ngủ đông trong dây thần kinh, bùng phát khi cơ thể suy yếu.
+            - **Zona thần kinh (Shingles):** Do virus thủy đậu (Varicella-Zoster) tái hoạt động. Đau nhức dữ dội dọc theo đường dây thần kinh trước khi nổi ban đỏ và mụn nước một bên cơ thể.
+
+            > **🚫 LỜI KHUYÊN TỪ CHUYÊN GIA:**
+            > Rất nhiều bệnh nhân khi thấy ngứa ngáy nổi mẩn đã tự ý ra hiệu thuốc mua các tuýp kem **"Bảy màu", "Trang Phục Linh"** (có chứa corticoid cực mạnh) để bôi. Điều này cực kỳ nguy hiểm nếu tổn thương do nấm hoặc virus, vì corticoid sẽ ức chế miễn dịch tại chỗ, khiến nấm và virus bùng phát dữ dội hơn, ăn sâu vào máu. Hãy thăm khám hoặc sử dụng công cụ AI chẩn đoán sơ bộ trước khi bôi bất cứ thứ gì.
             """)
+            
         elif page == 'camnang_4':
-            st.markdown('<img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:250px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2>Chế độ dinh dưỡng cho người có làn da mụn</h2>", unsafe_allow_html=True)
+            st.markdown('<img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
+            st.markdown("<h2>Chế độ Dinh dưỡng vàng cho người có làn da Mụn</h2>", unsafe_allow_html=True)
             st.markdown("""
-            Bên cạnh việc chăm sóc ngoài da, chế độ ăn uống đóng vai trò then chốt trong việc điều tiết bã nhờn và giảm viêm:
+            Mụn không chỉ là câu chuyện của nội tiết tố hay việc vệ sinh da kém. Y học hiện đại đã chứng minh mối liên hệ vô cùng mật thiết giữa hệ tiêu hóa (đường ruột) và sức khỏe làn da (Gut-Skin Axis). Bạn bôi các sản phẩm đắt tiền đến đâu, nhưng nếu duy trì một chế độ ăn "độc hại", mụn vẫn sẽ tiếp tục tái diễn.
+
+            Dưới đây là cẩm nang ăn uống chuẩn khoa học giúp kiểm soát mụn viêm hiệu quả:
+
+            ### ❌ NHỮNG THỰC PHẨM CẦN "KHOANH VÙNG" (NÊN TRÁNH)
             
-            **NÊN ĂN:**
-            - Thực phẩm giàu kẽm (Zinc): Hạt bí đỏ, đậu lăng, hàu, hải sản giúp giảm viêm và điều tiết bã nhờn.
-            - Omega-3: Cá hồi, hạt chia, hạt lanh giúp tăng cường màng rào bảo vệ và giảm sưng tấy.
-            - Rau xanh và trái cây tươi: Cung cấp Vitamin A, C, E chống oxy hóa tự nhiên.
+            1. **Sữa bò và chế phẩm từ sữa (Phô mai, Váng sữa, Whey Protein):**
+               Sữa bò công nghiệp (kể cả sữa không đường, tách béo) chứa nhiều hormone sinh trưởng và tiền chất nội tiết tố (IGF-1). Những chất này vào cơ thể sẽ kích thích tuyến bã nhờn phì đại, bơm dầu ồ ạt lên bề mặt da, làm tắc nghẽn nang lông.
+            2. **Thực phẩm có Chỉ số Đường huyết cao (High GI):**
+               Đường tinh luyện (Trà sữa, bánh ngọt, kẹo, nước ngọt) và tinh bột hấp thu nhanh (Bánh mì trắng, cơm trắng số lượng lớn). Khi ăn vào, đường huyết tăng vọt kéo theo Insulin tăng cao. Insulin là "ngòi nổ" kích hoạt phản ứng viêm toàn thân và làm nang lông sừng hóa nhanh hơn.
+            3. **Đồ ăn nhanh, dầu mỡ chuyển hóa (Fast food, Đồ chiên ngập dầu):**
+               Gây quá tải cho gan trong quá trình thải độc. Gốc tự do sinh ra từ dầu mỡ chiên đi chiên lại phá vỡ collagen và làm ổ mụn sưng to, lâu lành.
+
+            ### ✅ NHỮNG "SIÊU THỰC PHẨM" CỨU TINH CHO DA MỤN
             
-            **NÊN TRÁNH:**
-            - Sữa bò và các chế phẩm từ sữa: Có chứa hormone IGF-1 làm tăng tuyến bã nhờn.
-            - Đồ ngọt, nhiều đường (High Glycemic Index): Trà sữa, bánh kẹo... gây tăng sinh insulin, kích thích mụn sưng viêm bùng phát.
-            - Đồ ăn cay nóng, nhiều dầu mỡ: Tạo áp lực cho gan, kích thích phản ứng viêm của cơ thể.
+            1. **Thực phẩm giàu Kẽm (Zinc):**
+               Kẽm là khoáng chất "vàng" trong việc diệt khuẩn và kiểm soát hormone gây tiết dầu. Kẽm có nhiều trong: Hàu biển, Hạt bí ngô, Đậu lăng, Thịt bò.
+            2. **Omega-3 (Chống viêm tự nhiên):**
+               Nếu Omega-6 (dầu ăn công nghiệp) gây viêm, thì Omega-3 lại có khả năng dập tắt các phản ứng sưng đỏ của mụn bọc. Nguồn Omega-3 tuyệt vời: Cá hồi, Cá trích, Hạt Chia, Hạt Óc chó.
+            3. **Vitamin A, C, E và Chất chống oxy hóa:**
+               Bông cải xanh (Súp lơ xanh), Rau bina, Ớt chuông, Cà chua, Trà xanh. Chúng bảo vệ tế bào da khỏi sự tấn công của vi khuẩn và đẩy nhanh tốc độ phục hồi sẹo, thâm mụn.
+
+            > **💧 Nước lọc - Chìa khóa vạn năng:** Bạn cần uống đủ lượng nước `(Cân nặng x 40ml)` mỗi ngày. Thiếu nước, tuyến dầu sẽ tự động tiết ra nhiều hơn để bù ẩm, khiến tình trạng mụn trầm trọng thêm.
             """)
-        elif page == 'camnang_5':
-            st.markdown('<img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:250px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown('<h2>Lưu ý "sống còn" khi sử dụng Retinol / BHA</h2>', unsafe_allow_html=True)
-            st.markdown("""
-            Retinol và BHA là những "hoạt chất vàng" trong làng thay mới làn da, nhưng nếu dùng sai cách sẽ khiến da bùng viêm và nhạy cảm:
             
-            - **Bắt đầu từ nồng độ thấp:** Đừng tham nồng độ cao ngay lập tức. BHA 1-2% hoặc Retinol 0.1-0.3% là khởi đầu an toàn.
-            - **Tần suất thấp:** Tuần 1-2 lần ở giai đoạn đầu để da làm quen, sau đó mới tăng dần.
-            - **Cấp ẩm sâu:** Các hoạt chất này làm da khô bong tróc, bắt buộc phải kết hợp với B5, Ceramide, Hyaluronic Acid để phục hồi.
-            - **Tuyệt đối chống nắng:** Da dùng Treatment cực kỳ bắt nắng. SPF >= 50, PA++++ là yêu cầu bắt buộc mỗi ngày.
-            - **Đừng mix lộn xộn:** Tránh dùng BHA, AHA, Retinol, Vitamin C cùng một lúc trong 1 routine nếu bạn là người mới. Hãy chia ngày chẵn - lẻ để sử dụng.
+        elif page == 'camnang_5':
+            st.markdown('<img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
+            st.markdown('<h2>Lưu ý "sống còn" khi Treatment: Retinol và BHA</h2>', unsafe_allow_html=True)
+            st.markdown("""
+            Thuật ngữ **Treatment** (Sử dụng hoạt chất điều trị mạnh) đã không còn xa lạ. Retinol (Dẫn xuất Vitamin A) giúp chống lão hóa đỉnh cao, và BHA (Salicylic Acid) là "máy hút bụi" làm sạch sâu lỗ chân lông. Tuy nhiên, việc lạm dụng chúng mà thiếu kiến thức có thể khiến hàng rào bảo vệ da sụp đổ hoàn toàn.
+
+            Dưới đây là 5 quy tắc "sống còn" dành cho người mới bắt đầu (Newbie):
+
+            ### 1. Triết lý "Chậm mà chắc" (Start low, Go slow)
+            - **Nồng độ:** Đừng mua ngay Retinol 1% hay BHA 2% nền cồn chỉ vì thấy người khác review tốt. Hãy bắt đầu với Retinol 0.1% - 0.3% hoặc BHA 1% nền nước để da làm quen.
+            - **Tần suất:** Ở 2-3 tuần đầu tiên, chỉ nên sử dụng 1-2 lần/tuần. Sau khi da đã dung nạp tốt (không đỏ rát), mới bắt đầu tăng lên cách ngày.
+
+            ### 2. Tuyệt đối không thoa lên nền da ướt (Với Retinol)
+            Retinol thẩm thấu vào da sâu hơn và mạnh hơn khi nền da đang có nước (ẩm). Điều này vô tình gia tăng nguy cơ kích ứng, châm chích lên gấp 3 lần. Hãy rửa mặt, thấm khô hoàn toàn bằng khăn sạch, đợi thêm 5-10 phút rồi mới apply Retinol.
+
+            ### 3. Phục hồi là điều kiện tiên quyết
+            Các hoạt chất Treatment bản chất là làm bạt lớp sừng già cỗi, thúc đẩy tái tạo tế bào mới. Giai đoạn này da cực kỳ mong manh và khô tróc.
+            - Nếu không có các tinh chất phục hồi (Vitamin B5 - Panthenol, Ceramide, Hyaluronic Acid, Centella Asiatica), da bạn sẽ yếu đi trông thấy, giãn mao mạch và ửng đỏ triền miên.
+            - Quy tắc: 1 phần Treatment = 3 phần Phục hồi.
+
+            ### 4. Chia rẽ để trị (Đừng layer chồng chéo)
+            Tuyệt đối KHÔNG trộn chung hoặc bôi liên tiếp BHA, AHA, Retinol, Vitamin C trong cùng một buổi tối nếu bạn chưa phải là chuyên gia. 
+            - Hãy chia theo ngày: Ngày chẵn dùng BHA, Ngày lẻ dùng Retinol.
+            - Hoặc chia sáng tối: Sáng Vitamin C, Tối Retinol.
+
+            ### 5. Chống nắng - Lớp khiên bảo vệ bắt buộc
+            Da sau Treatment (đang thay mới tế bào) rất nhạy cảm với tia UV. Nếu bạn không thoa kem chống nắng đúng và đủ, da sẽ lập tức tăng sắc tố (sạm nám đen thui).
+            - Yêu cầu: Kem chống nắng phổ rộng (Broad Spectrum), SPF 50 trở lên, bôi đủ lượng (khoảng 2 đốt ngón tay) và dứt khoát phải bôi lại (Re-apply) vào buổi trưa.
             """)
         st.markdown("</div>", unsafe_allow_html=True)
 
@@ -850,66 +936,149 @@ def show_main_app():
             
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         if page == 'news_detail_1':
-            st.markdown('<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2>Top 5 phương pháp điều trị mụn trứng cá hiệu quả theo chuẩn y khoa</h2>", unsafe_allow_html=True)
-            st.write("**Tác giả:** Bác sĩ Chuyên khoa Da liễu | **Ngày đăng:** 04/06/2026")
+            st.markdown('<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
+            st.markdown("<h2 style='color:#0f172a;'>Top 5 phác đồ điều trị mụn trứng cá hiệu quả theo chuẩn y khoa</h2>", unsafe_allow_html=True)
+            st.write("**Tác giả:** TS. BS. Lê Thế Duy | **Ngày đăng:** 04/06/2026 | **Chuyên mục:** Chăm sóc da liễu")
             st.markdown("---")
             st.markdown("""
-            Mụn trứng cá là nỗi ám ảnh của nhiều người. Cùng chuyên gia da liễu tìm hiểu 5 phác đồ điều trị được Bộ Y tế khuyên dùng:
-            
-            1. **Sử dụng Retinol / Tretinoin:** Kích thích tăng sinh tế bào, đẩy mụn ẩn và giảm sừng hóa nang lông.
-            2. **BHA (Salicylic Acid):** Thấm sâu vào lỗ chân lông, hòa tan dầu nhờn và làm sạch sâu.
-            3. **Kháng sinh bôi (Clindamycin):** Giúp tiêu diệt vi khuẩn P.acnes gây sưng viêm.
-            4. **Lấy nhân mụn chuẩn y khoa:** Lấy đúng kỹ thuật giúp tránh để lại sẹo rỗ và sẹo thâm.
-            5. **Chăm sóc và Phục hồi:** Sử dụng các thành phần B5, Ceramide để khôi phục hàng rào bảo vệ da sau điều trị.
-            
-            *Lưu ý:* Việc áp dụng phác đồ nào tùy thuộc vào mức độ mụn của bạn, hãy đến thăm khám trực tiếp để được tư vấn nhé!
+            Mụn trứng cá (Acne Vulgaris) là một bệnh lý mãn tính của nang lông tuyến bã, ảnh hưởng đến hơn 80% thanh thiếu niên và người trưởng thành. Việc tự ý nặn mụn hoặc sử dụng các loại "kem trộn" trôi nổi không những không khỏi mà còn để lại hệ lụy sẹo rỗ vĩnh viễn. 
+
+            Dưới đây là 5 phác đồ điều trị được Hiệp hội Da liễu Hoa Kỳ (AAD) và Bộ Y tế Việt Nam khuyên dùng:
+
+            ### 1. Sử dụng dẫn xuất Vitamin A (Retinol / Tretinoin / Adapalene)
+            Đây được coi là "tiêu chuẩn vàng" trong điều trị mụn trứng cá. 
+            - **Cơ chế:** Kích thích quá trình sừng hóa diễn ra bình thường, đẩy các nhân mụn ẩn sâu dưới da lên bề mặt, đồng thời ngăn chặn việc hình thành các vi nang mới.
+            - **Cách dùng:** Bôi một lớp cực mỏng (cỡ hạt đậu) vào buổi tối. Nên bắt đầu với Adapalene 0.1% (Differin) vì nó ít gây kích ứng nhất.
+
+            ### 2. Sử dụng BHA (Salicylic Acid) để làm sạch sâu
+            Salicylic Acid là một loại axit tan trong dầu. Khác với AHA chỉ hoạt động trên bề mặt, BHA có thể len lỏi sâu vào lỗ chân lông để hòa tan bã nhờn, làm bong các tế bào chết đang bít tắc.
+            - **Lưu ý:** Chỉ nên dùng dung dịch BHA 1-2% khoảng 2-3 lần/tuần để tránh khô da.
+
+            ### 3. Tiêu diệt vi khuẩn bằng Kháng sinh bôi (Clindamycin) / Benzoyl Peroxide
+            Đối với các nốt mụn sưng đỏ, viêm có mủ (Mụn bọc), việc tiêu diệt vi khuẩn *C. acnes* là ưu tiên hàng đầu.
+            - **Benzoyl Peroxide (BPO):** Giải phóng oxy vào lỗ chân lông, tiêu diệt vi khuẩn kỵ khí. Tuy nhiên BPO làm khô da rất mạnh, chỉ nên chấm trực tiếp lên nốt mụn.
+            - **Clindamycin:** Kháng sinh bôi giúp giảm sưng viêm nhanh chóng. (Khuyến cáo: Luôn kết hợp Clindamycin với BPO để tránh hiện tượng kháng kháng sinh).
+
+            ### 4. Lấy nhân mụn chuẩn Y khoa
+            Việc lấy nhân mụn (Nặn mụn) không chữa khỏi bệnh, nhưng nó giúp giải phóng ổ viêm, rút ngắn thời gian điều trị. 
+            - Tuyệt đối không tự nặn mụn tại nhà bằng tay không vì dễ gây nhiễm trùng.
+            - Hãy đến phòng khám da liễu để các kỹ thuật viên dùng tăm bông và kim vô khuẩn mở đầu mụn chuẩn xác, tránh để lại sẹo thâm và sẹo rỗ.
+
+            ### 5. Phục hồi màng bảo vệ da (Skin Barrier)
+            Tất cả các loại thuốc trị mụn kể trên đều làm da khô, đỏ và bong tróc. Nếu màng bảo vệ da suy yếu, vi khuẩn sẽ càng dễ tấn công trở lại.
+            - Hãy trang bị một tuýp kem dưỡng ẩm chứa các thành phần phục hồi như: Vitamin B5 (Panthenol), Ceramide, Hyaluronic Acid, Niacinamide.
+
+            > **💡 TỔNG KẾT:** Điều trị mụn là một cuộc chiến dài hạn, đòi hỏi sự kiên nhẫn ít nhất 8-12 tuần mới thấy kết quả rõ rệt. Hãy tuân thủ phác đồ của bác sĩ và không nên thay đổi sản phẩm liên tục!
             """)
         elif page == 'news_detail_2':
-            st.markdown('<img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2>Ung thư Hắc tố (Melanoma): Dấu hiệu ABCDE bạn cần biết ngay</h2>", unsafe_allow_html=True)
-            st.write("**Tác giả:** Bác sĩ Chuyên khoa Da liễu | **Ngày đăng:** 02/06/2026")
+            st.markdown('<img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
+            st.markdown("<h2 style='color:#0f172a;'>Ung thư Hắc tố (Melanoma): Dấu hiệu sinh tử ABCDE bạn cần biết ngay</h2>", unsafe_allow_html=True)
+            st.write("**Tác giả:** TS. BS. Lê Thế Duy | **Ngày đăng:** 02/06/2026 | **Chuyên mục:** Cảnh báo Ung thư")
             st.markdown("---")
             st.markdown("""
-            Phát hiện sớm ung thư hắc tố giúp tăng tỷ lệ chữa khỏi lên 99%. Hãy tự kiểm tra nốt ruồi tại nhà theo nguyên tắc ABCDE:
-            
-            - **A (Asymmetry - Bất đối xứng):** Hai nửa của nốt ruồi không giống nhau.
-            - **B (Border - Bờ viền):** Đường viền nốt ruồi mờ nhạt, nham nhở hoặc không đều.
-            - **C (Color - Màu sắc):** Nốt ruồi có nhiều màu sắc khác nhau (chỗ đen, chỗ nâu, chỗ đỏ...).
-            - **D (Diameter - Đường kính):** Nốt ruồi lớn hơn 6mm (bằng cục tẩy bút chì).
-            - **E (Evolving - Sự phát triển):** Nốt ruồi thay đổi kích thước, hình dáng hoặc màu sắc một cách nhanh chóng.
-            
-            Nếu có bất kỳ dấu hiệu nào kể trên, hãy sử dụng **Công cụ Chẩn đoán AI** của chúng tôi hoặc đến ngay cơ sở y tế gần nhất!
+            Trong các loại ung thư da, **Ung thư hắc tố (Melanoma)** dù chỉ chiếm tỷ lệ nhỏ nhưng lại là nguyên nhân gây ra 75% số ca tử vong liên quan đến ung thư da. Lý do là vì Melanoma có khả năng di căn vào các cơ quan nội tạng (phổi, não, gan) với tốc độ chóng mặt.
+
+            Tuy nhiên, nếu được phát hiện ở giai đoạn sớm (khi khối u chỉ nằm trên lớp biểu bì), tỷ lệ chữa khỏi là gần 99%. Vậy làm sao để phân biệt một nốt ruồi bình thường và một khối u Melanoma? Hãy ghi nhớ quy tắc vàng **ABCDE**:
+
+            ### 🔲 A (Asymmetry - Sự bất đối xứng)
+            Nốt ruồi lành tính thường có hình tròn hoặc bầu dục, hai nửa hoàn toàn đối xứng nhau. 
+            Trong khi đó, tổn thương Melanoma thường có hình thù kỳ dị, méo mó. Nếu bạn kẻ một đường chia đôi nốt ruồi, hai nửa sẽ không hề giống nhau.
+
+            ### 🔲 B (Border - Bờ viền)
+            - **Nốt ruồi lành:** Bờ viền rõ nét, ranh giới rõ ràng với vùng da xung quanh.
+            - **Melanoma:** Bờ viền mờ nhạt, nham nhở, có hình răng cưa hoặc lan ra xung quanh như vết mực loang.
+
+            ### 🔲 C (Color - Màu sắc)
+            - **Nốt ruồi lành:** Chỉ có một màu duy nhất (nâu, đen, hoặc hồng).
+            - **Melanoma:** Có sự pha trộn của nhiều màu sắc khác nhau trong cùng một tổn thương. Chỗ thì đen đậm, chỗ thì nâu nhạt, đôi khi có cả màu đỏ, trắng hoặc xanh lam. Đây là dấu hiệu rất báo động.
+
+            ### 🔲 D (Diameter - Đường kính)
+            Hầu hết các nốt ruồi lành tính đều có kích thước nhỏ hơn đầu cục tẩy bút chì (khoảng 6mm). Nếu bạn thấy một nốt ruồi mới mọc hoặc nốt ruồi cũ to ra bất thường, vượt quá 6mm, hãy đi kiểm tra ngay.
+
+            ### 🔲 E (Evolving - Sự tiến triển)
+            Đây là yếu tố quan trọng nhất! Một nốt ruồi bình thường sẽ giữ nguyên trạng thái trong suốt cuộc đời bạn. Nếu một nốt ruồi đột nhiên:
+            - To lên nhanh chóng.
+            - Đổi màu.
+            - Bắt đầu ngứa rát, chảy máu, hoặc đóng vảy.
+            => Đó gần như chắc chắn là dấu hiệu ác tính.
+
+            > **⚠️ HÀNH ĐỘNG NGAY:**
+            > Nếu bạn tìm thấy bất kỳ dấu hiệu ABCDE nào trên cơ thể, hãy sử dụng **Công cụ Chẩn đoán AI** của chúng tôi ở phần Menu để chụp ảnh và phân tích ban đầu. Sau đó, **phải lập tức** đến Bệnh viện Da liễu để làm sinh thiết tế bào. Đừng chần chừ dù chỉ một ngày!
             """)
         elif page == 'news_detail_3':
-            st.markdown('<img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2>Tác hại kinh hoàng của tia UV và cách chọn kem chống nắng chuẩn</h2>", unsafe_allow_html=True)
-            st.write("**Tác giả:** Chuyên gia Skincare | **Ngày đăng:** 01/06/2026")
+            st.markdown('<img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
+            st.markdown("<h2 style='color:#0f172a;'>Tác hại "âm thầm" của tia UV và Hướng dẫn chọn kem chống nắng chuẩn y khoa</h2>", unsafe_allow_html=True)
+            st.write("**Tác giả:** Ban biên tập | **Ngày đăng:** 01/06/2026 | **Chuyên mục:** Kiến thức làm đẹp")
             st.markdown("---")
             st.markdown("""
-            Tia UVA và UVB là nguyên nhân số 1 gây lão hóa và ung thư da. Hướng dẫn đọc chỉ số SPF và PA trên kem chống nắng:
-            
-            - **Tia UVA:** Xuyên qua kính, gây lão hóa, nếp nhăn và nám sạm (Chỉ số PA đo lường khả năng chống UVA, PA++++ là cao nhất).
-            - **Tia UVB:** Gây cháy nắng, bỏng rát và tăng nguy cơ ung thư da (Chỉ số SPF đo lường khả năng chống UVB, SPF 50 ngăn được 98% UVB).
-            
-            **Cách sử dụng chuẩn:**
-            Nên thoa kem chống nắng 20 phút trước khi ra ngoài và thoa lại sau mỗi 2-3 giờ, hoặc ngay sau khi bơi lội, đổ mồ hôi nhiều. Lượng bôi khoảng 2 đốt ngón tay cho toàn mặt.
+            Rất nhiều người chỉ bôi kem chống nắng khi đi biển hoặc khi trời nắng gắt. Đó là một sai lầm chết người. Tia cực tím (UV) luôn tồn tại ngay cả khi trời mưa, râm mát, hay thậm chí khi bạn ngồi trong văn phòng kín.
+
+            Ánh nắng mặt trời phát ra 3 loại tia cực tím: UVC (bị tầng ozone cản lại), UVB và UVA.
+
+            ### ☀️ Tia UVB (Tia gây "Bỏng" - Burning)
+            - Chiếm khoảng 5% lượng tia UV chiếu xuống trái đất. 
+            - Bị cản lại bởi kính râm, quần áo, cửa kính.
+            - Tác hại: Gây cháy nắng, đỏ rát da, đen sạm. UVB tác động mạnh nhất từ 10h sáng đến 3h chiều.
+
+            ### ⛅ Tia UVA (Tia gây "Lão hóa" - Aging)
+            - Chiếm tới 95% lượng tia UV.
+            - Xuyên qua mây mù, cửa kính, quần áo một cách dễ dàng.
+            - Tác hại: Phá vỡ cấu trúc collagen và elastin sâu dưới da, gây ra nếp nhăn, chảy xệ, nám, tàn nhang và là thủ phạm số 1 gây **Ung thư da**.
+
+            ---
+
+            ### HƯỚNG DẪN ĐỌC CHỈ SỐ KEM CHỐNG NẮNG
+
+            Khi mua kem chống nắng, bạn phải quan tâm đến 2 chỉ số:
+
+            **1. Chỉ số SPF (Sun Protection Factor) - Chống tia UVB:**
+            - SPF 15: Chặn được khoảng 93% tia UVB.
+            - SPF 30: Chặn được khoảng 97% tia UVB.
+            - SPF 50: Chặn được khoảng 98% tia UVB.
+            👉 *Chuyên gia khuyên dùng:* Nên chọn SPF từ 30 đến 50 cho nhu cầu hàng ngày. Chỉ số lớn hơn 50 không mang lại hiệu quả vượt trội mà còn dễ làm bít tắc lỗ chân lông.
+
+            **2. Chỉ số PA (Protection Grade of UVA) - Chống tia UVA:**
+            Đây là thang đo của Nhật Bản, cực kỳ phổ biến ở châu Á.
+            - PA++: Khả năng bảo vệ khỏi UVA ở mức trung bình (60-70%).
+            - PA+++: Bảo vệ tốt (Khoảng 90%).
+            - PA++++: Bảo vệ xuất sắc (Hơn 95%).
+            👉 *Chuyên gia khuyên dùng:* Hãy luôn chọn sản phẩm có PA++++ để chống lão hóa tốt nhất. Nếu mua đồ Âu Mỹ, hãy tìm chữ **"Broad Spectrum"** (Phổ rộng - tương đương PA++++).
+
+            ### 📏 QUY TẮC BÔI KEM CHỐNG NẮNG ĐÚNG CHUẨN
+            1. **Đủ lượng:** Phải bôi đủ 2 milligrams/1cm² da mặt. Tương đương với khoảng 1.5 - 2 đốt ngón tay trỏ. Nếu bôi ít hơn, SPF 50 cũng chỉ mang lại tác dụng tương đương SPF 10.
+            2. **Đủ thời gian:** Bôi kem chống nắng hóa học trước khi ra ngoài 20 phút.
+            3. **Bôi lại (Re-apply):** Kem chống nắng sẽ trôi dần qua mồ hôi và bã nhờn. Bắt buộc phải bôi lại hoặc dùng xịt chống nắng, phấn phủ chống nắng dặm lại sau mỗi 3-4 tiếng.
             """)
         elif page == 'news_detail_4':
-            st.markdown('<img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2>Khai trương Hệ thống Chẩn đoán Da Liễu bằng Trí tuệ Nhân tạo</h2>", unsafe_allow_html=True)
-            st.write("**Tác giả:** Ban Quản trị Hospital teams 11 | **Ngày đăng:** 28/05/2026")
+            st.markdown('<img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
+            st.markdown("<h2 style='color:#0f172a;'>Chính thức: Khai trương Hệ thống Chẩn đoán Da Liễu bằng AI (Hospital Teams 11)</h2>", unsafe_allow_html=True)
+            st.write("**Tác giả:** Ban Quản trị Hospital teams 11 | **Ngày đăng:** 28/05/2026 | **Chuyên mục:** Tin tức nội bộ")
             st.markdown("---")
             st.markdown("""
-            **Hospital teams 11 chính thức ra mắt tính năng chẩn đoán hình ảnh và văn bản y khoa bằng AI đa phương thức với độ chính xác cao.**
-            
-            Đây là một bước tiến vượt bậc của đội ngũ phát triển. Hệ thống AI kết hợp giữa Mô hình phân tích Hình ảnh (ResNet/EfficientNet) và Mô hình phân tích Ngôn ngữ tự nhiên (PhoBERT) giúp:
-            
-            - Phân tích đồng thời cả hình ảnh tổn thương và lời khai triệu chứng của bệnh nhân.
-            - Phát hiện 7 loại bệnh lý về da liễu phổ biến nhất (Bao gồm cả Ung thư hắc tố).
-            - Trả kết quả cực kỳ nhanh chóng (dưới 3 giây) với độ tin cậy được định lượng rõ ràng.
-            
-            Mọi người dùng đều có thể trải nghiệm tính năng này hoàn toàn miễn phí tại mục **CHẨN ĐOÁN AI**.
+            Trong nỗ lực chuyển đổi số y tế và mang lại cơ hội tiếp cận y tế chất lượng cao cho mọi người dân, **Hospital teams 11** chính thức ra mắt tính năng **Chẩn đoán hình ảnh và văn bản y khoa bằng Trí tuệ Nhân tạo đa phương thức**.
+
+            Đây là thành quả sau nhiều năm nghiên cứu của TS. BS. Lê Thế Duy cùng các kỹ sư máy học hàng đầu, sử dụng kho dữ liệu hàng trăm nghìn bệnh án da liễu từ các bệnh viện lớn trên toàn cầu.
+
+            ### 🚀 BƯỚC ĐỘT PHÁ CÔNG NGHỆ
+            Thay vì chỉ dùng một mô hình AI đơn lẻ, hệ thống của chúng tôi tích hợp cùng lúc 2 công nghệ cốt lõi:
+            1. **Thị giác Máy tính (Computer Vision):** Các mô hình Deep Learning tiên tiến (ResNet, EfficientNet) được huấn luyện để bóc tách từng chi tiết nhỏ nhất trên hình ảnh tổn thương da (Màu sắc, viền, kích thước, cấu trúc).
+            2. **Xử lý Ngôn ngữ Tự nhiên (NLP):** Bệnh nhân không chỉ gửi ảnh, mà còn nhập văn bản mô tả triệu chứng (VD: "Tôi bị ngứa 3 ngày nay, mọc mụn nước nhỏ"). Mô hình PhoBERT sẽ phân tích ngữ nghĩa, kết hợp với kết quả từ hình ảnh để đưa ra kết luận chéo.
+
+            ### 🎯 KHẢ NĂNG CHẨN ĐOÁN
+            Hệ thống hiện tại có khả năng sàng lọc độ chính xác lên tới 96% đối với 7 loại bệnh lý về da phổ biến và nguy hiểm nhất:
+            1. Dày sừng tiết bã (Benign keratosis)
+            2. Nốt ruồi lành tính (Melanocytic nevi)
+            3. U xơ da (Dermatofibroma)
+            4. **Ung thư hắc tố (Melanoma) - Cực kỳ nguy hiểm**
+            5. Tổn thương mạch máu (Vascular lesions)
+            6. **Ung thư biểu mô tế bào đáy (Basal cell carcinoma)**
+            7. Dày sừng quang hóa (Actinic keratoses) - Tiền ung thư
+
+            ### ⏱️ TRẢ KẾT QUẢ "THẦN TỐC"
+            Người dùng chỉ cần mở Camera hoặc Tải ảnh lên tại mục **CHẨN ĐOÁN AI**. Bấm nút phân tích, và kết quả sẽ hiển thị chi tiết (Bao gồm tỷ lệ phần trăm dự đoán và lời khuyên y khoa) chỉ trong vòng **3 giây**.
+
+            > **🌟 MIỄN PHÍ HOÀN TOÀN:**
+            > Sứ mệnh của Hospital Teams 11 là y tế vì cộng đồng. Hệ thống AI này sẽ được mở cửa miễn phí cho tất cả mọi người dùng đã đăng ký tài khoản trên nền tảng. Hãy lan tỏa công cụ này đến người thân để chủ động bảo vệ sức khỏe nhé!
             """)
         st.markdown("</div>", unsafe_allow_html=True)
 
@@ -971,6 +1140,21 @@ def show_main_app():
             if st.button("Đọc chi tiết ➜", key="news_page_btn4", use_container_width=True):
                 st.session_state.page = 'news_detail_4'
                 st.rerun()
+
+        st.markdown("<br><hr style='border-color: rgba(56, 189, 248, 0.2);'><br>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color: #38bdf8; margin-bottom: 20px;'>💬 HỎI ĐÁP CÙNG CHUYÊN GIA (FAQ)</h3>", unsafe_allow_html=True)
+        
+        with st.expander("❓ Dạo gần đây lưng tôi nổi rất nhiều mụn đỏ, ngứa và đau rát. Tôi có nên bôi thuốc mỡ không?"):
+            st.markdown("**👨‍⚕️ Bác sĩ Da Liễu:** Chào bạn, mụn ở lưng có thể do viêm nang lông hoặc dị ứng. Bạn **KHÔNG NÊN** tự ý bôi thuốc mỡ (vì đa số chứa corticoid gây bít tắc và bùng phát mụn nặng hơn). Hãy dùng sữa tắm chứa Salicylic Acid 2% và giữ lưng khô thoáng. Đừng quên dùng công cụ **Chẩn Đoán AI** để kiểm tra thêm nhé!")
+            
+        with st.expander("❓ Làm sao để phân biệt giữa nám và tàn nhang?"):
+            st.markdown("**👨‍⚕️ Bác sĩ Da Liễu:** Tàn nhang là những đốm lốm đốm nhỏ, sậm màu, xuất hiện rải rác và nhạt đi vào mùa đông. Nám thường mọc thành từng mảng lớn, đối xứng hai bên má, có chân sâu (thường do nội tiết tố sau sinh). Điều trị nám khó hơn tàn nhang và cần thời gian dài.")
+            
+        with st.expander("❓ Tôi là nam giới, da hay đổ dầu thì skincare thế nào cho nhanh gọn?"):
+            st.markdown("**👨‍⚕️ Bác sĩ Da Liễu:** Nam giới thường có tuyến bã nhờn hoạt động mạnh hơn. Bạn chỉ cần 3 bước cốt lõi: **(1)** Sữa rửa mặt tạo bọt làm sạch sâu. **(2)** Kem dưỡng ẩm dạng Gel (Không chứa dầu/Oil-free) để cấp nước. **(3)** Kem chống nắng vào ban ngày. Đơn giản nhưng rất hiệu quả!")
+            
+        with st.expander("❓ Dùng Retinol có làm mỏng da không?"):
+            st.markdown("**👨‍⚕️ Bác sĩ Da Liễu:** Đây là một hiểu lầm phổ biến! Ở giai đoạn đầu (1-2 tháng), Retinol sẽ làm bạt đi lớp sừng chết già cỗi trên cùng, khiến bạn cảm thấy da mỏng đi. Tuy nhiên, về lâu dài, Retinol lại **kích thích tăng sinh Collagen**, làm lớp trung bì dưới da dày và khỏe hơn rất nhiều.")
 
     elif page == 'qa':
         st.markdown("<div class='card-title'>HỎI ĐÁP CÙNG CHUYÊN GIA DA LIỄU</div>", unsafe_allow_html=True)
