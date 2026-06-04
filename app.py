@@ -298,12 +298,7 @@ st.markdown("""
 
 # ----------------- TRANG ĐĂNG NHẬP / ĐĂNG KÝ (PORTAL) -----------------
 def show_auth_page():
-    st.markdown("""
-    <div class="top-header" style="margin-bottom: 30px;">
-        <h1>HOSPITAL TEAMS 11</h1>
-        <p>Hệ Sinh Thái Y Tế Công Nghệ Cao & Trí Tuệ Nhân Tạo</p>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("<div class='card-title'>CỔNG ĐĂNG NHẬP HỆ THỐNG</div>", unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns([1, 2, 1])
     
@@ -582,39 +577,52 @@ def show_admin_app():
 
 def show_main_app():
     # --- TOP HEADER & NAVBAR ---
-    st.markdown("""
-    <div class="top-header">
-        <h1>HOSPITAL TEAMS 11</h1>
-        <p>HỆ THỐNG CHẨN ĐOÁN Y KHOA TRÍ TUỆ NHÂN TẠO (AI MULTI-MODAL)</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
+    h1, h2 = st.columns([3, 1])
+    with h1:
+        st.markdown("""
+        <div class="top-header" style="text-align: left; background: none; padding: 0;">
+            <h1 style="color: #00f0ff; margin: 0; font-size: 32px;">HOSPITAL TEAMS 11</h1>
+            <p style="color: #a0aec0; margin: 0; font-size: 16px;">HỆ THỐNG CHẨN ĐOÁN Y KHOA TRÍ TUỆ NHÂN TẠO</p>
+        </div>
+        """, unsafe_allow_html=True)
+    with h2:
+        st.markdown("<div style='margin-top: 10px;'></div>", unsafe_allow_html=True)
+        if not st.session_state.get('logged_in', False):
+            if st.button("🔐 ĐĂNG NHẬP / ĐĂNG KÝ", use_container_width=True):
+                st.session_state.page = 'login'
+                st.rerun()
+        else:
+            user_name = st.session_state.get('user_info', {}).get('FullName', 'Bạn')
+            st.markdown(f"<div style='text-align: right; margin-bottom: 5px; color: white;'>👤 Chào, <b>{user_name}</b></div>", unsafe_allow_html=True)
+            if st.button("🚪 ĐĂNG XUẤT", use_container_width=True):
+                st.session_state.logged_in = False
+                st.session_state.is_admin = False
+                st.session_state.user_info = None
+                st.session_state.page = 'home'
+                st.rerun()
+
     st.markdown("<br>", unsafe_allow_html=True)
     
     # NAVIGATION BAR
-    nav1, nav2, nav3, nav4, nav5, nav6 = st.columns(6)
+    nav1, nav2, nav3, nav4 = st.columns(4)
     with nav1:
         if st.button("🏠 TRANG CHỦ", use_container_width=True): st.session_state.page = 'home'
     with nav2:
-        if st.button("📰 TIN TỨC", use_container_width=True): st.session_state.page = 'news'
-    with nav3:
         if st.button("🩺 CHẨN ĐOÁN AI", use_container_width=True): st.session_state.page = 'ai'
-    with nav4:
-        if st.button("💬 HỎI ĐÁP", use_container_width=True): st.session_state.page = 'qa'
-    with nav5:
+    with nav3:
         if st.button("📁 HỒ SƠ", use_container_width=True): st.session_state.page = 'history'
-    with nav6:
-        if st.button("🚪 ĐĂNG XUẤT", use_container_width=True): 
-            st.session_state.logged_in = False
-            st.session_state.user_info = None
-            st.rerun()
+    with nav4:
+        if st.button("📰 TIN TỨC & HỎI ĐÁP", use_container_width=True): st.session_state.page = 'news'
 
     st.markdown("<hr style='margin-top: 0; border-top: 2px solid #e2e8f0;'>", unsafe_allow_html=True)
 
     # --- ROUTING LOGIC ---
-    page = st.session_state.page
+    page = st.session_state.get('page', 'home')
 
-    if page == 'home':
+    if page == 'login':
+        show_auth_page()
+
+    elif page == 'home':
         # Hero Banner Tech
         st.markdown('<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">', unsafe_allow_html=True)
         
@@ -708,9 +716,23 @@ def show_main_app():
             - Nốt ruồi (Melanocytic nevi)
             - U xơ da (Dermatofibroma)
             - Ung thư hắc tố (Melanoma)
-            - Ung thư biểu mô tế bào đáy (BCC)
+            - Tổn thương mạch máu
+            - Ung thư biểu mô tế bào đáy
+            - Dày sừng quang hóa
             """, unsafe_allow_html=True)
             st.markdown("</div>", unsafe_allow_html=True)
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<div class='card-title'>ĐÁNH GIÁ CỦA NGƯỜI DÙNG VÀ CHUYÊN GIA</div>", unsafe_allow_html=True)
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
+        r1, r2, r3 = st.columns(3)
+        with r1:
+            st.info("⭐⭐⭐⭐⭐\n\n\"Hệ thống AI cực kỳ nhanh và chính xác. Đã giúp tôi phát hiện sớm nốt ruồi bất thường để đi phẫu thuật kịp thời.\"\n\n**- Bệnh nhân N.V.A**")
+        with r2:
+            st.success("⭐⭐⭐⭐⭐\n\n\"Phần cẩm nang y tế rất hữu ích và chuẩn khoa học. Khác biệt hoàn toàn với các thông tin rác trên mạng.\"\n\n**- Chị L.T.B (Hà Nội)**")
+        with r3:
+            st.warning("⭐⭐⭐⭐⭐\n\n\"Là một bác sĩ da liễu, tôi đánh giá cao công cụ AI này như một trợ lý đắc lực trong việc sàng lọc lâm sàng ban đầu.\"\n\n**- Bs. T.K.H**")
+        st.markdown("</div>", unsafe_allow_html=True)
 
     elif page.startswith('camnang_'):
         st.markdown("<div class='card-title'>CẨM NANG Y TẾ CHUYÊN KHOA</div>", unsafe_allow_html=True)
@@ -948,8 +970,14 @@ def show_main_app():
         st.markdown("</div>", unsafe_allow_html=True)
 
     elif page == 'history':
-        st.markdown("<div class='card-title'>HỒ SƠ BỆNH ÁN CÁ NHÂN</div>", unsafe_allow_html=True)
-        st.markdown(f"**Bệnh nhân / Cán bộ:** {st.session_state.user_info['FullName']}")
+        if not st.session_state.get('logged_in', False):
+            st.markdown("<div class='card'>", unsafe_allow_html=True)
+            st.warning("⚠️ BẠN CẦN ĐĂNG NHẬP ĐỂ XEM HỒ SƠ CÁ NHÂN!")
+            st.info("Vui lòng bấm nút **Đăng nhập / Đăng ký** ở góc trên cùng bên phải để trải nghiệm.")
+            st.markdown("</div>", unsafe_allow_html=True)
+        else:
+            st.markdown("<div class='card-title'>HỒ SƠ BỆNH ÁN CÁ NHÂN</div>", unsafe_allow_html=True)
+            st.markdown(f"**Bệnh nhân / Cán bộ:** {st.session_state.user_info['FullName']}")
         
         history = get_user_history(st.session_state.user_info['UserID'])
         if history:
@@ -976,7 +1004,13 @@ def show_main_app():
             st.markdown("</div>", unsafe_allow_html=True)
 
     elif page == 'ai':
-        st.markdown("<div class='card-title'>PHÒNG KHÁM ONLINE: CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</div>", unsafe_allow_html=True)
+        if not st.session_state.get('logged_in', False):
+            st.markdown("<div class='card'>", unsafe_allow_html=True)
+            st.warning("⚠️ BẠN CẦN ĐĂNG NHẬP ĐỂ SỬ DỤNG CHỨC NĂNG NÀY!")
+            st.info("Vui lòng bấm nút **Đăng nhập / Đăng ký** ở góc trên cùng bên phải để trải nghiệm Phòng Khám AI.")
+            st.markdown("</div>", unsafe_allow_html=True)
+        else:
+            st.markdown("<div class='card-title'>PHÒNG KHÁM ONLINE: CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</div>", unsafe_allow_html=True)
         
         model, tokenizer, transform, device = load_system()
         if model is None:
@@ -1094,9 +1128,8 @@ def show_main_app():
     """, unsafe_allow_html=True)
 
 # --- LUỒNG ĐIỀU KHIỂN ---
-if not st.session_state.logged_in:
-    show_auth_page()
-elif st.session_state.get('is_admin', False):
+# --- LUỒNG ĐIỀU KHIỂN ---
+if st.session_state.get('is_admin', False):
     show_admin_app()
 else:
     show_main_app()
