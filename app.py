@@ -245,16 +245,20 @@ st.markdown("""
         padding: 20px;
     }
     .article-title {
-        font-size: 18px;
+        font-size: 26px;
         color: #e2e8f0;
-        font-weight: 600;
-        margin-bottom: 10px;
+        font-weight: 700;
+        margin-bottom: 12px;
         line-height: 1.4;
     }
     .article-excerpt {
-        font-size: 14px;
+        font-size: 16px;
         color: #94a3b8;
         line-height: 1.6;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     /* Report Card */
@@ -710,45 +714,45 @@ def show_main_app():
         with hero_left:
             st.markdown("""
 <div onclick="window.parent.document.evaluate('//button[contains(., \\'CHẨN ĐOÁN AI\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
-    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width: 100%; height: 380px; object-fit: cover; transition: transform 0.3s ease;">
-    <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(15,23,42,0.95), transparent); padding: 40px 20px 20px 20px;">
-        <h3 style="color: #38bdf8; margin: 0 0 10px 0; font-size: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Ra mắt Hệ thống AI Chẩn đoán Đa phương thức 2.0</h3>
-        <p style="color: #e2e8f0; margin: 0; font-size: 15px;">Hospital Teams 11 chính thức nâng cấp lõi trí tuệ nhân tạo, tích hợp dữ liệu lâm sàng và hình ảnh giúp chẩn đoán chính xác hơn 99% các bệnh lý về da.</p>
+    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width: 100%; height: 450px; object-fit: cover; transition: transform 0.3s ease;">
+    <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(15,23,42,0.95), transparent); padding: 50px 30px 25px 30px;">
+        <h3 style="color: #38bdf8; margin: 0 0 12px 0; font-size: 30px; text-shadow: 0 2px 4px rgba(0,0,0,0.8); line-height: 1.3;">Ra mắt Hệ thống AI Chẩn đoán Đa phương thức 2.0</h3>
+        <p style="color: #e2e8f0; margin: 0; font-size: 17px; line-height: 1.5;">Hospital Teams 11 chính thức nâng cấp lõi trí tuệ nhân tạo, tích hợp dữ liệu lâm sàng và hình ảnh giúp chẩn đoán chính xác hơn 99% các bệnh lý về da.</p>
     </div>
 </div>
 """, unsafe_allow_html=True)
             
         with hero_right:
             st.markdown("""
-<div style="display: flex; flex-direction: column; gap: 15px; height: 380px; justify-content: space-between;">
-    <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="display: flex; gap: 15px; align-items: center; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
-        <div style="flex-shrink: 0; width: 120px; height: 80px; border-radius: 8px; overflow: hidden;">
+<div style="display: flex; flex-direction: column; gap: 15px; height: 450px; justify-content: space-between;">
+    <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="display: flex; gap: 20px; align-items: center; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
+        <div style="flex-shrink: 0; width: 150px; height: 105px; border-radius: 8px; overflow: hidden;">
             <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
         </div>
         <div>
-            <h4 style="color: #f8fafc; margin: 0 0 5px 0; font-size: 15px; line-height: 1.4;">Hợp tác phát triển liên thông Dữ liệu Hồ sơ bệnh án điện tử</h4>
-            <p style="color: #94a3b8; font-size: 12px; margin: 0;">04/06/2026</p>
+            <h4 style="color: #f8fafc; margin: 0 0 8px 0; font-size: 17px; line-height: 1.4;">Hợp tác phát triển liên thông Dữ liệu Hồ sơ bệnh án điện tử</h4>
+            <p style="color: #94a3b8; font-size: 14px; margin: 0;">04/06/2026</p>
         </div>
     </div>
-    <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="display: flex; gap: 15px; align-items: center; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
-        <div style="flex-shrink: 0; width: 120px; height: 80px; border-radius: 8px; overflow: hidden;">
+    <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="display: flex; gap: 20px; align-items: center; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
+        <div style="flex-shrink: 0; width: 150px; height: 105px; border-radius: 8px; overflow: hidden;">
             <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
         </div>
         <div>
-            <h4 style="color: #f8fafc; margin: 0 0 5px 0; font-size: 15px; line-height: 1.4;">Chuyên gia Da Liễu cảnh báo: Chỉ số UV đạt ngưỡng cực điểm</h4>
-            <p style="color: #94a3b8; font-size: 12px; margin: 0;">03/06/2026</p>
+            <h4 style="color: #f8fafc; margin: 0 0 8px 0; font-size: 17px; line-height: 1.4;">Chuyên gia Da Liễu cảnh báo: Chỉ số UV đạt ngưỡng cực điểm</h4>
+            <p style="color: #94a3b8; font-size: 14px; margin: 0;">03/06/2026</p>
         </div>
     </div>
-    <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="display: flex; gap: 15px; align-items: center; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
-        <div style="flex-shrink: 0; width: 120px; height: 80px; border-radius: 8px; overflow: hidden;">
+    <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="display: flex; gap: 20px; align-items: center; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
+        <div style="flex-shrink: 0; width: 150px; height: 105px; border-radius: 8px; overflow: hidden;">
             <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
         </div>
         <div>
-            <h4 style="color: #f8fafc; margin: 0 0 5px 0; font-size: 15px; line-height: 1.4;">Bảo vệ dữ liệu y tế cá nhân: Ưu tiên hàng đầu của chúng tôi</h4>
-            <p style="color: #94a3b8; font-size: 12px; margin: 0;">01/06/2026</p>
+            <h4 style="color: #f8fafc; margin: 0 0 8px 0; font-size: 17px; line-height: 1.4;">Bảo vệ dữ liệu y tế cá nhân: Ưu tiên hàng đầu của chúng tôi</h4>
+            <p style="color: #94a3b8; font-size: 14px; margin: 0;">01/06/2026</p>
         </div>
     </div>
-    <button onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="background: none; border: 1px solid #38bdf8; color: #38bdf8; padding: 8px; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; width: 100%; font-size: 13px;" onmouseover="this.style.background='#38bdf8'; this.style.color='#0f172a'" onmouseout="this.style.background='none'; this.style.color='#38bdf8'">Xem tất cả tin tức ➜</button>
+    <button onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="background: none; border: 1px solid #38bdf8; color: #38bdf8; padding: 12px; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; width: 100%; font-size: 16px; font-weight: 600;" onmouseover="this.style.background='#38bdf8'; this.style.color='#0f172a'" onmouseout="this.style.background='none'; this.style.color='#38bdf8'">Xem tất cả tin tức ➜</button>
 </div>
 """, unsafe_allow_html=True)
             
@@ -759,34 +763,34 @@ def show_main_app():
         st.markdown("""
 <div style="display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; overflow-x: auto;">
     <div onclick="window.parent.document.evaluate('//button[contains(., \\'CHẨN ĐOÁN AI\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="text-align: center; flex: 1; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width: 80px; height: 80px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #0284c7, #38bdf8); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(56,189,248,0.3);">
-            <span style="font-size: 35px;">🤖</span>
+        <div style="width: 110px; height: 110px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #0284c7, #38bdf8); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(56,189,248,0.3);">
+            <span style="font-size: 50px;">🤖</span>
         </div>
-        <h5 style="color: #f8fafc; font-size: 14px; margin: 0;">Khám bệnh bằng AI</h5>
+        <h5 style="color: #f8fafc; font-size: 16px; margin: 0;">Khám bệnh AI</h5>
     </div>
     <div onclick="window.parent.document.evaluate('//button[contains(., \\'HỒ SƠ\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="text-align: center; flex: 1; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width: 80px; height: 80px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #059669, #34d399); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(52,211,153,0.3);">
-            <span style="font-size: 35px;">📖</span>
+        <div style="width: 110px; height: 110px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #059669, #34d399); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(52,211,153,0.3);">
+            <span style="font-size: 50px;">📖</span>
         </div>
-        <h5 style="color: #f8fafc; font-size: 14px; margin: 0;">Sổ Sức Khỏe Điện Tử</h5>
+        <h5 style="color: #f8fafc; font-size: 16px; margin: 0;">Sổ Sức Khỏe</h5>
     </div>
     <div onclick="window.parent.document.evaluate('//button[contains(., \\'CHẨN ĐOÁN AI\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="text-align: center; flex: 1; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width: 80px; height: 80px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(167,139,250,0.3);">
-            <span style="font-size: 35px;">👨‍⚕️</span>
+        <div style="width: 110px; height: 110px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(167,139,250,0.3);">
+            <span style="font-size: 50px;">👨‍⚕️</span>
         </div>
-        <h5 style="color: #f8fafc; font-size: 14px; margin: 0;">Bác Sĩ Trực Tuyến</h5>
+        <h5 style="color: #f8fafc; font-size: 16px; margin: 0;">Bác Sĩ Online</h5>
     </div>
     <div onclick="window.parent.document.evaluate('//button[contains(., \\'TIN TỨC & HỎI ĐÁP\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="text-align: center; flex: 1; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width: 80px; height: 80px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #ea580c, #fb923c); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(251,146,60,0.3);">
-            <span style="font-size: 35px;">📚</span>
+        <div style="width: 110px; height: 110px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #ea580c, #fb923c); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(251,146,60,0.3);">
+            <span style="font-size: 50px;">📚</span>
         </div>
-        <h5 style="color: #f8fafc; font-size: 14px; margin: 0;">Cẩm Nang Y Tế</h5>
+        <h5 style="color: #f8fafc; font-size: 16px; margin: 0;">Cẩm Nang Y Tế</h5>
     </div>
     <div onclick="alert('Hotline Trực tuyến hoạt động 24/7: 1900-1111'); return false;" style="text-align: center; flex: 1; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width: 80px; height: 80px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #be123c, #fb7185); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(251,113,133,0.3);">
-            <span style="font-size: 35px;">📞</span>
+        <div style="width: 110px; height: 110px; margin: 0 auto 15px auto; background: linear-gradient(135deg, #be123c, #fb7185); border-radius: 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(251,113,133,0.3);">
+            <span style="font-size: 50px;">📞</span>
         </div>
-        <h5 style="color: #f8fafc; font-size: 14px; margin: 0;">Đường Dây Nóng</h5>
+        <h5 style="color: #f8fafc; font-size: 16px; margin: 0;">Đường Dây Nóng</h5>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -797,17 +801,17 @@ def show_main_app():
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         step1, step2, step3 = st.columns(3, gap="large")
         with step1:
-            st.markdown('<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
-            st.markdown("<h4 style='color: #38bdf8; text-align: center;'>Bước 1: Tiếp nhận Hình ảnh</h4>", unsafe_allow_html=True)
-            st.write("Bệnh nhân tự chụp ảnh vùng da bị tổn thương bằng điện thoại hoặc tải lên hệ thống từ kết quả khám lâm sàng.")
+            st.markdown('<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:240px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
+            st.markdown("<h4 style='color: #38bdf8; text-align: center; font-size: 20px;'>Bước 1: Tiếp nhận Hình ảnh</h4>", unsafe_allow_html=True)
+            st.markdown("<p style='font-size: 16px; color: #cbd5e1; text-align: justify;'>Bệnh nhân tự chụp ảnh vùng da bị tổn thương bằng điện thoại hoặc tải lên hệ thống từ kết quả khám lâm sàng.</p>", unsafe_allow_html=True)
         with step2:
-            st.markdown('<img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
-            st.markdown("<h4 style='color: #38bdf8; text-align: center;'>Bước 2: AI Phân tích</h4>", unsafe_allow_html=True)
-            st.write("Mô hình Trí tuệ nhân tạo học sâu (Deep Learning) quét hình ảnh và triệu chứng lâm sàng để nhận diện 7 loại bệnh lý da liễu.")
+            st.markdown('<img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:240px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
+            st.markdown("<h4 style='color: #38bdf8; text-align: center; font-size: 20px;'>Bước 2: AI Phân tích</h4>", unsafe_allow_html=True)
+            st.markdown("<p style='font-size: 16px; color: #cbd5e1; text-align: justify;'>Mô hình Trí tuệ nhân tạo học sâu (Deep Learning) quét hình ảnh và triệu chứng lâm sàng để nhận diện 7 loại bệnh lý da liễu.</p>", unsafe_allow_html=True)
         with step3:
-            st.markdown('<img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:180px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
-            st.markdown("<h4 style='color: #38bdf8; text-align: center;'>Bước 3: Bác sĩ tư vấn</h4>", unsafe_allow_html=True)
-            st.write("Kết quả AI được trả về trong vài giây. Bác sĩ chuyên khoa sẽ dựa vào đó để đưa ra phác đồ điều trị chính xác và tư vấn trực tuyến.")
+            st.markdown('<img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:240px; object-fit:cover; border-radius:8px; margin-bottom:15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">', unsafe_allow_html=True)
+            st.markdown("<h4 style='color: #38bdf8; text-align: center; font-size: 20px;'>Bước 3: Bác sĩ tư vấn</h4>", unsafe_allow_html=True)
+            st.markdown("<p style='font-size: 16px; color: #cbd5e1; text-align: justify;'>Kết quả AI được trả về trong vài giây. Bác sĩ chuyên khoa sẽ dựa vào đó để đưa ra phác đồ điều trị chính xác và tư vấn trực tuyến.</p>", unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
