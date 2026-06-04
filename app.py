@@ -597,16 +597,30 @@ def show_main_app():
         display: none;
     }
     
-    /* Gắn chặt container chứa marker lên top */
+    /* Gắn chặt container chứa marker lên top bằng Fixed Position */
     div[data-testid="stElementContainer"]:has(.sticky-header-marker) {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         z-index: 999;
         background-color: #0f172a; /* Màu nền app */
-        padding-top: 1rem;
-        padding-bottom: 10px;
-        margin-top: -3rem; /* Kéo lên sát mép màn hình */
+        padding: 1.5rem 3rem 10px 3rem; 
         border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    
+    /* Tạo khoảng trống đẩy nội dung xuống để không bị header đè lên */
+    .header-placeholder {
+        height: 220px;
+    }
+    
+    @media (max-width: 768px) {
+        div[data-testid="stElementContainer"]:has(.sticky-header-marker) {
+            padding: 1rem 1.5rem 10px 1.5rem; 
+        }
+        .header-placeholder {
+            height: 350px;
+        }
     }
     </style>
     """, unsafe_allow_html=True)
@@ -653,6 +667,9 @@ def show_main_app():
             if st.button("📁 HỒ SƠ", use_container_width=True): navigate_to('history')
         with nav4:
             if st.button("📰 TIN TỨC & HỎI ĐÁP", use_container_width=True): navigate_to('news')
+
+    # Thêm khoảng trống (placeholder) ở dưới header_container
+    st.markdown('<div class="header-placeholder"></div>', unsafe_allow_html=True)
 
     # --- ROUTING LOGIC ---
     page = st.session_state.get('page', 'home')
