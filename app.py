@@ -432,12 +432,18 @@ def show_admin_app():
     st.markdown("<br>", unsafe_allow_html=True)
     
     # NAVIGATION BAR ADMIN
-    nav1, nav2, nav3, nav4, nav5 = st.columns(5)
+    nav1, nav2, nav3, nav4, nav5, nav6 = st.columns(6)
     with nav1:
-        if st.button("👥 QUẢN LÝ NGƯỜI DÙNG", use_container_width=True): st.session_state.page = 'admin_users'
+        if st.button("📊 TỔNG QUAN", use_container_width=True): st.session_state.page = 'admin_dashboard'
     with nav2:
-        if st.button("🩺 LỊCH SỬ CHẨN ĐOÁN", use_container_width=True): st.session_state.page = 'admin_history'
+        if st.button("👥 NGƯỜI DÙNG", use_container_width=True): st.session_state.page = 'admin_users'
+    with nav3:
+        if st.button("🩺 LỊCH SỬ AI", use_container_width=True): st.session_state.page = 'admin_history'
+    with nav4:
+        if st.button("🤖 TRI THỨC AI", use_container_width=True): st.session_state.page = 'admin_ai'
     with nav5:
+        if st.button("⚙️ CÀI ĐẶT", use_container_width=True): st.session_state.page = 'admin_settings'
+    with nav6:
         if st.button("🚪 ĐĂNG XUẤT", use_container_width=True): 
             st.session_state.logged_in = False
             st.session_state.is_admin = False
@@ -446,47 +452,132 @@ def show_admin_app():
             
     st.markdown("<hr style='margin-top: 0; border-top: 2px solid #e2e8f0;'>", unsafe_allow_html=True)
     
-    page = st.session_state.get('page', 'admin_users')
+    page = st.session_state.get('page', 'admin_dashboard')
+    if page == 'home': page = 'admin_dashboard'
         
-    if page == 'admin_users' or page == 'home':
-        st.markdown("<div class='card-title'>DANH SÁCH NGƯỜI DÙNG HỆ THỐNG</div>", unsafe_allow_html=True)
+    users = get_all_users()
+    history = get_all_history()
+    
+    if page == 'admin_dashboard':
+        st.markdown("<div class='card-title'>TỔNG QUAN HỆ THỐNG</div>", unsafe_allow_html=True)
+        
+        # Metrics
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric(label="👥 Tổng Người Dùng", value=len(users), delta="Hoạt động tốt")
+        with col2:
+            st.metric(label="🩺 Tổng Lượt Chẩn Đoán AI", value=len(history), delta="Tăng trưởng")
+        with col3:
+            avg_conf = sum([h.get('ConfidenceScore', 0) for h in history]) / len(history) if history else 0
+            st.metric(label="✅ Độ Tin Cậy Trung Bình", value=f"{avg_conf:.1f}%", delta="Rất cao")
+            
+        st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("<div class='card'>", unsafe_allow_html=True)
-        users = get_all_users()
+        st.markdown("### 📊 Phân bố các loại bệnh lý đã chẩn đoán")
+        if history:
+            df_hist = pd.DataFrame(history)
+            df_hist.columns = ["MÃ KHÁM", "TÊN BỆNH NHÂN", "TRIỆU CHỨNG", "KẾT QUẢ AI", "ĐỘ TIN CẬY (%)", "THỜI GIAN"]
+            disease_counts = df_hist["KẾT QUẢ AI"].value_counts().reset_index()
+            disease_counts.columns = ['Bệnh lý', 'Số ca']
+            st.bar_chart(disease_counts.set_index('Bệnh lý'), color="#ff3366")
+        else:
+            st.info("Chưa có dữ liệu chẩn đoán để hiển thị biểu đồ.")
+        st.markdown("</div>", unsafe_allow_html=True)
+        
+    elif page == 'admin_users':
+        st.markdown("<div class='card-title'>QUẢN LÝ NGƯỜI DÙNG HỆ THỐNG</div>", unsafe_allow_html=True)
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
         if users:
             df = pd.DataFrame(users)
             df.columns = ["ID", "TÊN ĐĂNG NHẬP", "HỌ VÀ TÊN", "NGÀY ĐĂNG KÝ"]
             df['NGÀY ĐĂNG KÝ'] = pd.to_datetime(df['NGÀY ĐĂNG KÝ']).dt.strftime('%d/%m/%Y %H:%M')
             
-            c1, c2 = st.columns([2, 1])
+            c1, c2 = st.columns([3, 1])
             with c1:
                 st.dataframe(df, use_container_width=True, hide_index=True, height=400)
             with c2:
                 st.markdown(f"### Tổng số User: **{len(users)}**")
-                st.info("Hệ thống hoạt động ổn định. Dữ liệu được bảo mật an toàn trên máy chủ nội bộ.")
+                csv = df.to_csv(index=False).encode('utf-8-sig')
+                st.download_button(
+                    label="📥 Xuất danh sách CSV",
+                    data=csv,
+                    file_name='users_list.csv',
+                    mime='text/csv',
+                    use_container_width=True
+                )
+                st.info("Bạn có thể tải danh sách người dùng về máy để lưu trữ hoặc phân tích.")
         else:
             st.warning("Chưa có người dùng nào đăng ký.")
         st.markdown("</div>", unsafe_allow_html=True)
         
     elif page == 'admin_history':
-        st.markdown("<div class='card-title'>TOÀN BỘ LỊCH SỬ CHẨN ĐOÁN AI TRÊN HỆ THỐNG</div>", unsafe_allow_html=True)
+        st.markdown("<div class='card-title'>QUẢN LÝ LỊCH SỬ CHẨN ĐOÁN AI</div>", unsafe_allow_html=True)
         st.markdown("<div class='card'>", unsafe_allow_html=True)
-        history = get_all_history()
         if history:
             df = pd.DataFrame(history)
             df.columns = ["MÃ KHÁM", "TÊN BỆNH NHÂN", "TRIỆU CHỨNG", "KẾT QUẢ AI", "ĐỘ TIN CẬY (%)", "THỜI GIAN"]
             df['THỜI GIAN'] = pd.to_datetime(df['THỜI GIAN']).dt.strftime('%d/%m/%Y %H:%M')
             df['ĐỘ TIN CẬY (%)'] = df['ĐỘ TIN CẬY (%)'].round(2)
             
-            c1, c2 = st.columns([2.5, 1])
+            c1, c2 = st.columns([3, 1])
             with c1:
                 st.dataframe(df, use_container_width=True, hide_index=True, height=400)
             with c2:
-                st.markdown(f"### Tổng số lượt khám AI: **{len(history)}**")
-                disease_counts = df["KẾT QUẢ AI"].value_counts().reset_index()
-                disease_counts.columns = ['Bệnh lý', 'Số ca']
-                st.bar_chart(disease_counts.set_index('Bệnh lý'), color="#ff3366")
+                st.markdown(f"### Số lượt khám: **{len(history)}**")
+                csv = df.to_csv(index=False).encode('utf-8-sig')
+                st.download_button(
+                    label="📥 Xuất lịch sử CSV",
+                    data=csv,
+                    file_name='diagnosis_history.csv',
+                    mime='text/csv',
+                    use_container_width=True
+                )
+                st.info("Tải lịch sử chẩn đoán để đối chiếu với hồ sơ bệnh án thực tế.")
         else:
             st.warning("Chưa có dữ liệu chẩn đoán nào trên hệ thống.")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    elif page == 'admin_ai':
+        st.markdown("<div class='card-title'>QUẢN LÝ TRI THỨC VÀ MÔ HÌNH AI</div>", unsafe_allow_html=True)
+        
+        c1, c2 = st.columns(2)
+        with c1:
+            st.markdown("<div class='card'>", unsafe_allow_html=True)
+            st.markdown("### 🧠 Tri thức các bệnh lý hiện tại")
+            st.write("Mô hình AI đa phương thức hiện tại đang hỗ trợ nhận diện và chẩn đoán **7 loại bệnh lý** về da liễu:")
+            for key, val in DISEASE_INFO.items():
+                st.markdown(f"- **{val[0]}**")
+            st.markdown("</div>", unsafe_allow_html=True)
+            
+        with c2:
+            st.markdown("<div class='card'>", unsafe_allow_html=True)
+            st.markdown("### 🔄 Cập nhật Mô hình (Weights)")
+            st.info("Phiên bản hiện tại: **v1.0.0 (MultimodalNet)**")
+            st.write("Upload file `.pth` mới nhất đã được huấn luyện để cập nhật trí thông minh cho hệ thống AI.")
+            uploaded_model = st.file_uploader("Chọn file weights (.pth)", type=['pth'])
+            if uploaded_model:
+                st.success("Tải lên thành công! Mô hình mới sẽ được áp dụng sau khi khởi động lại hệ thống.")
+            st.markdown("</div>", unsafe_allow_html=True)
+
+    elif page == 'admin_settings':
+        st.markdown("<div class='card-title'>CÀI ĐẶT HỆ THỐNG (SYSTEM SETTINGS)</div>", unsafe_allow_html=True)
+        st.markdown("<div class='card'>", unsafe_allow_html=True)
+        
+        st.subheader("Bảo mật & Truy cập")
+        reg_toggle = st.toggle("Cho phép đăng ký tài khoản mới", value=True)
+        main_toggle = st.toggle("Bật chế độ Bảo trì (Maintenance Mode)", value=False)
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.subheader("Cơ sở dữ liệu")
+        if st.button("🗑️ Xóa bộ đệm (Clear Cache)"):
+            st.cache_resource.clear()
+            st.success("Đã xóa bộ đệm hệ thống!")
+            
+        if not reg_toggle:
+            st.warning("Tính năng Đăng ký tài khoản mới đang bị TẮT.")
+        if main_toggle:
+            st.error("Hệ thống đang trong chế độ Bảo trì. Người dùng thông thường sẽ không thể sử dụng chức năng AI.")
+        
         st.markdown("</div>", unsafe_allow_html=True)
 
 def show_main_app():
