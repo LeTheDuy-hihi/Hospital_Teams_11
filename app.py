@@ -618,7 +618,7 @@ def show_main_app():
     
     /* Tạo khoảng trống đẩy nội dung xuống để không bị đè */
     .header-placeholder {
-        height: 160px; /* Đã thu nhỏ để gọn hơn */
+        height: 200px; /* Đã tinh chỉnh lại chiều cao */
     }
     
     @media (max-width: 768px) {
@@ -626,7 +626,7 @@ def show_main_app():
             padding: 1rem 1.5rem 5px 1.5rem; 
         }
         .header-placeholder {
-            height: 240px;
+            height: 300px;
         }
     }
     </style>
@@ -641,7 +641,9 @@ def show_main_app():
             img_base64 = get_base64_of_bin_file("profile/logo.png")
             st.markdown(f"""
             <div class="top-header" style="text-align: left; background: none; padding: 0; display: flex; align-items: center;">
-                <img src="data:image/png;base64,{img_base64}" style="width: 100px; height: 100px; margin-right: 5px; filter: drop-shadow(0 4px 6px rgba(0,240,255,0.3));">
+                <a href="#" onclick="window.parent.document.evaluate('//button[contains(., \\'TRANG CHỦ\\')]', window.parent.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click(); return false;" style="cursor: pointer;">
+                    <img src="data:image/png;base64,{img_base64}" style="width: 140px; height: 140px; margin-right: 15px; filter: drop-shadow(0 4px 6px rgba(0,240,255,0.3)); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                </a>
                 <div>
                     <h1 style="color: #00f0ff; margin: 0; font-size: 32px;">HOSPITAL TEAMS 11</h1>
                     <p style="color: #a0aec0; margin: 0; font-size: 16px;">HỆ THỐNG CHẨN ĐOÁN Y KHOA TRÍ TUỆ NHÂN TẠO</p>
