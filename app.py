@@ -1395,7 +1395,7 @@ def show_main_app():
             st.markdown("</div>", unsafe_allow_html=True)
 
     elif page == 'ai':
-        st.markdown("<h1 style='color: #00f0ff; text-align: center; font-size: 36px; font-weight: 800; letter-spacing: 2px; margin-bottom: 30px; text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);'>PHÒNG KHÁM ONLINE: CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='color: #00f0ff; text-align: center; font-size: 48px; font-weight: 900; letter-spacing: 3px; margin-bottom: 40px; text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);'>PHÒNG KHÁM ONLINE: CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</h1>", unsafe_allow_html=True)
         
         model, tokenizer, transform, device = load_system()
         if model is None:
@@ -1406,17 +1406,17 @@ def show_main_app():
         
         with col_clinical:
             st.markdown("<div class='card' style='padding: 40px;'>", unsafe_allow_html=True)
-            st.markdown("<h3 style='color:#00f0ff; font-size: 26px; border-bottom: 2px solid rgba(0, 240, 255, 0.4); padding-bottom: 15px; margin-bottom: 25px;'><span style='font-size: 30px;'>📋</span> NHẬP THÔNG TIN LÂM SÀNG</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color:#00f0ff; font-size: 34px; border-bottom: 3px solid rgba(0, 240, 255, 0.4); padding-bottom: 20px; margin-bottom: 30px;'><span style='font-size: 40px;'>📋</span> NHẬP THÔNG TIN LÂM SÀNG</h3>", unsafe_allow_html=True)
             
-            st.markdown("<p style='font-size: 18px; color: #f8fafc; font-weight: 600; margin-bottom: 10px;'>Mô tả chi tiết triệu chứng (Bắt buộc):</p>", unsafe_allow_html=True)
+            st.markdown("<p style='font-size: 24px; color: #f8fafc; font-weight: 600; margin-bottom: 15px;'>Mô tả chi tiết triệu chứng (Bắt buộc):</p>", unsafe_allow_html=True)
             symptom_text = st.text_area(
-                "Mô tả chi tiết triệu chứng:", height=150,
+                "Mô tả chi tiết triệu chứng:", height=200,
                 placeholder="Ví dụ: Vùng da mẩn đỏ, có cảm giác ngứa ngáy và đau rát nhẹ khi chạm vào...",
                 label_visibility="collapsed"
             )
             
             st.markdown("<br>", unsafe_allow_html=True)
-            st.markdown("<p style='font-size: 18px; color: #f8fafc; font-weight: 600; margin-bottom: 10px;'>Hình ảnh tổn thương da (Bắt buộc):</p>", unsafe_allow_html=True)
+            st.markdown("<p style='font-size: 24px; color: #f8fafc; font-weight: 600; margin-bottom: 15px;'>Hình ảnh tổn thương da (Bắt buộc):</p>", unsafe_allow_html=True)
             
             img_source = st.radio("Chọn phương thức nhận ảnh:", ["📸 Chụp ảnh từ Camera", "📂 Tải ảnh từ máy tính"], horizontal=True, label_visibility="collapsed")
             
@@ -1441,13 +1441,13 @@ def show_main_app():
             
         with col_report:
             st.markdown("<div class='card' style='padding: 40px;'>", unsafe_allow_html=True)
-            st.markdown("<h3 style='color:#00f0ff; font-size: 26px; border-bottom: 2px solid rgba(0, 240, 255, 0.4); padding-bottom: 15px; margin-bottom: 25px;'><span style='font-size: 30px;'>🤖</span> KẾT QUẢ TỪ TRÍ TUỆ NHÂN TẠO</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color:#00f0ff; font-size: 34px; border-bottom: 3px solid rgba(0, 240, 255, 0.4); padding-bottom: 20px; margin-bottom: 30px;'><span style='font-size: 40px;'>🤖</span> KẾT QUẢ TỪ TRÍ TUỆ NHÂN TẠO</h3>", unsafe_allow_html=True)
             
             if not uploaded_file or not symptom_text.strip():
                 st.markdown("""
-                <div style='background: rgba(15, 23, 42, 0.8); border: 1px dashed rgba(148, 163, 184, 0.5); padding: 30px; border-radius: 12px; text-align: center; color: #cbd5e1;'>
-                    <span style='font-size: 40px; display: block; margin-bottom: 15px;'>⏳</span>
-                    <p style='font-size: 18px; line-height: 1.6;'>Hệ thống đang chờ hình ảnh và mô tả triệu chứng của bạn để tiến hành phân tích.</p>
+                <div style='background: rgba(15, 23, 42, 0.8); border: 1px dashed rgba(148, 163, 184, 0.5); padding: 40px; border-radius: 12px; text-align: center; color: #cbd5e1;'>
+                    <span style='font-size: 50px; display: block; margin-bottom: 20px;'>⏳</span>
+                    <p style='font-size: 22px; line-height: 1.6;'>Hệ thống đang chờ hình ảnh và mô tả triệu chứng của bạn để tiến hành phân tích.</p>
                 </div>
                 """, unsafe_allow_html=True)
             else:
@@ -1456,15 +1456,16 @@ def show_main_app():
                     .analyze-btn {
                         background: linear-gradient(90deg, #0284c7, #38bdf8);
                         color: white !important;
-                        font-size: 20px !important;
-                        font-weight: bold !important;
-                        padding: 15px 30px;
-                        border-radius: 12px;
+                        font-size: 26px !important;
+                        font-weight: 800 !important;
+                        padding: 20px 40px;
+                        border-radius: 15px;
                         border: none;
                         width: 100%;
                         cursor: pointer;
-                        box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+                        box-shadow: 0 4px 20px rgba(56, 189, 248, 0.5);
                         transition: all 0.3s ease;
+                        letter-spacing: 1px;
                     }
                     .analyze-btn:hover {
                         transform: translateY(-2px);
@@ -1492,25 +1493,25 @@ def show_main_app():
                         
                         # Report Box
                         st.markdown(f"""
-                        <div class="report-card" style="padding: 40px; background: rgba(15, 23, 42, 0.9);">
+                        <div class="report-card" style="padding: 50px; background: rgba(15, 23, 42, 0.9);">
                             <div class="report-header">
-                                <h2 style="font-size: 32px; letter-spacing: 2px;">PHIẾU KẾT QUẢ CHẨN ĐOÁN</h2>
-                                <p style="color:#94a3b8; margin-top:10px; font-size:16px;">Ngày xét nghiệm: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
+                                <h2 style="font-size: 40px; letter-spacing: 3px; font-weight: 900;">PHIẾU KẾT QUẢ CHẨN ĐOÁN</h2>
+                                <p style="color:#94a3b8; margin-top:15px; font-size:20px;">Ngày xét nghiệm: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
                             </div>
                             
-                            <p style="margin: 0 0 10px 0; font-size: 18px; color:#cbd5e1;">Kết luận sơ bộ:</p>
-                            <div style="background: rgba(0, 240, 255, 0.1); border-left: 5px solid #00f0ff; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
-                                <h3 style="color:#00f0ff; margin: 0; font-size: 30px; font-family: 'Orbitron', sans-serif; text-transform: uppercase;">{disease_str}</h3>
+                            <p style="margin: 0 0 15px 0; font-size: 24px; color:#cbd5e1; font-weight: 600;">Kết luận sơ bộ:</p>
+                            <div style="background: rgba(0, 240, 255, 0.1); border-left: 8px solid #00f0ff; padding: 30px; border-radius: 10px; margin-bottom: 35px;">
+                                <h3 style="color:#00f0ff; margin: 0; font-size: 45px; font-weight: 900; font-family: 'Orbitron', sans-serif; text-transform: uppercase;">{disease_str}</h3>
                             </div>
                             
-                            <div class="severity-{severity}" style="font-size: 18px; padding: 15px; border-radius: 8px;">
+                            <div class="severity-{severity}" style="font-size: 22px; padding: 25px; border-radius: 10px; line-height: 1.5; font-weight: bold;">
                                 {'> 🚨 NGUY CƠ CAO: Đề nghị đến ngay bệnh viện Da liễu để sinh thiết.' if severity == 'danger' else '> ⚠️ CẢNH BÁO: Rủi ro tổn thương viêm nhiễm. Cần theo dõi thêm.' if severity == 'warning' else '> ✅ AN TOÀN: Tổn thương sinh lý Lành tính.'}
                             </div>
                             
-                            <div style="margin-top: 30px; border-top: 2px dashed rgba(0, 240, 255, 0.3); padding-top: 20px;">
-                                <p style="margin:0; font-size: 20px; display:flex; justify-content:space-between; align-items: center;">
+                            <div style="margin-top: 40px; border-top: 3px dashed rgba(0, 240, 255, 0.3); padding-top: 30px;">
+                                <p style="margin:0; font-size: 26px; display:flex; justify-content:space-between; align-items: center; font-weight: bold;">
                                     <span style="color: #cbd5e1;">Độ tin cậy của AI:</span>
-                                    <strong style="color: #00f0ff; font-size: 28px; text-shadow: 0 0 10px rgba(0,240,255,0.5);">{conf_score:.1f}%</strong>
+                                    <strong style="color: #00f0ff; font-size: 45px; text-shadow: 0 0 15px rgba(0,240,255,0.7);">{conf_score:.1f}%</strong>
                                 </p>
                             </div>
                         </div>
