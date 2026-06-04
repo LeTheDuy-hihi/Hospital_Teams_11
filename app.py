@@ -27,8 +27,8 @@ if 'src.database' in sys.modules:
 from src.database import register_user, login_user, save_diagnosis, get_user_history, get_all_users, get_all_history
 
 # Cấu hình trang (phải gọi đầu tiên)
-st.set_page_config(page_title="Hospital teams 11 - AI Diagnostics", page_icon="profile/logo.jpg", layout="wide", initial_sidebar_state="collapsed")
-st.logo("profile/logo.jpg")
+st.set_page_config(page_title="Hospital teams 11 - AI Diagnostics", page_icon="profile/logo.png", layout="wide", initial_sidebar_state="collapsed")
+st.logo("profile/logo.png")
 
 # --- KHỞI TẠO SESSION STATE ---
 if 'logged_in' not in st.session_state:
@@ -592,10 +592,10 @@ def show_main_app():
     # --- TOP HEADER & NAVBAR ---
     h1, h2 = st.columns([3, 1])
     with h1:
-        img_base64 = get_base64_of_bin_file("profile/logo.jpg")
+        img_base64 = get_base64_of_bin_file("profile/logo.png")
         st.markdown(f"""
         <div class="top-header" style="text-align: left; background: none; padding: 0; display: flex; align-items: center;">
-            <img src="data:image/jpeg;base64,{img_base64}" style="width: 60px; height: 60px; margin-right: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+            <img src="data:image/png;base64,{img_base64}" style="width: 90px; height: 90px; margin-right: 20px; filter: drop-shadow(0 4px 6px rgba(0,240,255,0.3));">
             <div>
                 <h1 style="color: #00f0ff; margin: 0; font-size: 32px;">HOSPITAL TEAMS 11</h1>
                 <p style="color: #a0aec0; margin: 0; font-size: 16px;">HỆ THỐNG CHẨN ĐOÁN Y KHOA TRÍ TUỆ NHÂN TẠO</p>
