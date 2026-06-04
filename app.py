@@ -132,9 +132,9 @@ st.markdown("""
         border-radius: 8px !important;
         font-family: 'Orbitron', sans-serif !important;
         font-weight: 700 !important;
-        font-size: 14px !important;
+        font-size: 16px !important;
         letter-spacing: 1px !important;
-        padding: 10px 0 !important;
+        padding: 12px 0 !important;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         transition: all 0.3s ease;
         text-transform: uppercase;
@@ -148,8 +148,12 @@ st.markdown("""
     }
 
     /* Label Input */
-    .stTextInput label, .stTextArea label, p, h2, h3, h4 {
+    .stTextInput label, .stTextArea label, p, h2, h3, h4, span, li {
         color: #f8fafc !important;
+    }
+    p, .stMarkdown p, .stMarkdown li, label, .stText {
+        font-size: 17px !important;
+        line-height: 1.6 !important;
     }
 
     /* Input Fields */
@@ -159,8 +163,8 @@ st.markdown("""
         border-radius: 8px;
         color: #38bdf8 !important;
         font-family: 'Inter', sans-serif !important;
-        font-size: 15px;
-        padding: 12px;
+        font-size: 17px;
+        padding: 14px;
         transition: all 0.3s ease;
         box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
     }
@@ -190,7 +194,7 @@ st.markdown("""
     .card-title {
         color: #38bdf8 !important;
         font-family: 'Orbitron', sans-serif !important;
-        font-size: 22px;
+        font-size: 26px;
         border-bottom: 1px solid rgba(56, 189, 248, 0.2);
         padding-bottom: 15px;
         margin-bottom: 25px;
@@ -245,14 +249,14 @@ st.markdown("""
         padding: 20px;
     }
     .article-title {
-        font-size: 18px;
+        font-size: 22px;
         color: #e2e8f0;
         font-weight: 600;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         line-height: 1.4;
     }
     .article-excerpt {
-        font-size: 14px;
+        font-size: 16px;
         color: #94a3b8;
         line-height: 1.6;
     }
