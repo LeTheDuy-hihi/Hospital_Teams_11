@@ -1029,12 +1029,19 @@ def show_main_app():
             )
             
             st.markdown("<br>", unsafe_allow_html=True)
-            st.markdown("**Tải lên hình ảnh tổn thương da:**")
-            uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"], label_visibility="collapsed")
+            st.markdown("**Hình ảnh tổn thương da:**")
+            
+            img_source = st.radio("Chọn phương thức nhận ảnh:", ["📸 Chụp ảnh từ Camera", "📂 Tải ảnh từ máy tính"], horizontal=True, label_visibility="collapsed")
+            
+            uploaded_file = None
+            if img_source == "📸 Chụp ảnh từ Camera":
+                uploaded_file = st.camera_input("Hướng vùng da bị tổn thương vào camera và chụp")
+            else:
+                uploaded_file = st.file_uploader("Chọn file ảnh từ máy tính", type=["jpg", "jpeg", "png"])
             
             if uploaded_file:
                 image = Image.open(uploaded_file).convert('RGB')
-                st.image(image, caption="Hình ảnh đã tải lên", use_container_width=True)
+                st.image(image, caption="Hình ảnh đã nhận", use_container_width=True)
             st.markdown("</div>", unsafe_allow_html=True)
             
         with col_report:
