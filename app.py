@@ -605,22 +605,22 @@ def show_main_app():
         right: 0;
         z-index: 999;
         background-color: #0f172a; /* Màu nền app */
-        padding: 1.5rem 3rem 10px 3rem; 
+        padding: 0.5rem 3rem 0px 3rem; 
         border-bottom: 1px solid rgba(56, 189, 248, 0.3);
         box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
     
     /* Tạo khoảng trống đẩy nội dung xuống để không bị đè */
     .header-placeholder {
-        height: 250px; /* Chiều cao thực tế của toàn bộ cụm logo + nút */
+        height: 160px; /* Đã thu nhỏ để gọn hơn */
     }
     
     @media (max-width: 768px) {
         div[data-testid="stVerticalBlock"]:has(> div[data-testid="stElementContainer"] .sticky-header-marker) {
-            padding: 1rem 1.5rem 10px 1.5rem; 
+            padding: 0.5rem 1.5rem 0px 1.5rem; 
         }
         .header-placeholder {
-            height: 350px;
+            height: 240px;
         }
     }
     </style>
@@ -635,7 +635,7 @@ def show_main_app():
             img_base64 = get_base64_of_bin_file("profile/logo.png")
             st.markdown(f"""
             <div class="top-header" style="text-align: left; background: none; padding: 0; display: flex; align-items: center;">
-                <img src="data:image/png;base64,{img_base64}" style="width: 180px; height: 180px; margin-right: 5px; filter: drop-shadow(0 4px 6px rgba(0,240,255,0.3));">
+                <img src="data:image/png;base64,{img_base64}" style="width: 100px; height: 100px; margin-right: 5px; filter: drop-shadow(0 4px 6px rgba(0,240,255,0.3));">
                 <div>
                     <h1 style="color: #00f0ff; margin: 0; font-size: 32px;">HOSPITAL TEAMS 11</h1>
                     <p style="color: #a0aec0; margin: 0; font-size: 16px;">HỆ THỐNG CHẨN ĐOÁN Y KHOA TRÍ TUỆ NHÂN TẠO</p>
@@ -655,8 +655,6 @@ def show_main_app():
                     st.session_state.is_admin = False
                     st.session_state.user_info = None
                     navigate_to('home')
-
-        st.markdown("<br>", unsafe_allow_html=True)
         
         # NAVIGATION BAR
         nav1, nav2, nav3, nav4 = st.columns(4)
