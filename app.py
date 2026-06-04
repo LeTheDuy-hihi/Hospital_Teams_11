@@ -45,6 +45,7 @@ else:
 def navigate_to(page_name):
     st.query_params["page"] = page_name
     st.session_state.page = page_name
+    st.session_state.scroll_to_top = True
     st.rerun()
 
 # --- HELPER: LOTTIE ANIMATION ---
@@ -1408,4 +1409,20 @@ if st.session_state.get('is_admin', False):
 else:
     show_main_app()
 
-
+# Thêm Javascript ẩn để cuộn lên đầu trang khi có yêu cầu chuyển trang
+if st.session_state.get('scroll_to_top', False):
+    import streamlit.components.v1 as components
+    components.html(
+        """
+        <script>
+            var appContainer = window.parent.document.querySelector('.stAppViewContainer');
+            if(appContainer) {
+                appContainer.scrollTo({top: 0, behavior: 'smooth'});
+            } else {
+                window.parent.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        </script>
+        """,
+        height=0
+    )
+    st.session_state.scroll_to_top = False
