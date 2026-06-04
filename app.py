@@ -605,7 +605,7 @@ def show_main_app():
         right: 0;
         z-index: 999;
         background-color: #0f172a; /* Màu nền app */
-        padding: 0.5rem 3rem 0px 3rem; 
+        padding: 1.5rem 3rem 5px 3rem; 
         border-bottom: 1px solid rgba(56, 189, 248, 0.3);
         box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
@@ -617,7 +617,7 @@ def show_main_app():
     
     @media (max-width: 768px) {
         div[data-testid="stVerticalBlock"]:has(> div[data-testid="stElementContainer"] .sticky-header-marker) {
-            padding: 0.5rem 1.5rem 0px 1.5rem; 
+            padding: 1rem 1.5rem 5px 1.5rem; 
         }
         .header-placeholder {
             height: 240px;
