@@ -595,7 +595,7 @@ def show_main_app():
         img_base64 = get_base64_of_bin_file("profile/logo.png")
         st.markdown(f"""
         <div class="top-header" style="text-align: left; background: none; padding: 0; display: flex; align-items: center;">
-            <img src="data:image/png;base64,{img_base64}" style="width: 140px; height: 140px; margin-right: 20px; filter: drop-shadow(0 4px 6px rgba(0,240,255,0.3));">
+            <img src="data:image/png;base64,{img_base64}" style="width: 180px; height: 180px; margin-right: 5px; filter: drop-shadow(0 4px 6px rgba(0,240,255,0.3));">
             <div>
                 <h1 style="color: #00f0ff; margin: 0; font-size: 32px;">HOSPITAL TEAMS 11</h1>
                 <p style="color: #a0aec0; margin: 0; font-size: 16px;">HỆ THỐNG CHẨN ĐOÁN Y KHOA TRÍ TUỆ NHÂN TẠO</p>
