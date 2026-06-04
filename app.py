@@ -8,6 +8,12 @@ from PIL import Image, ImageEnhance
 import os
 import pandas as pd
 from datetime import datetime
+import base64
+
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
 # Import mô hình và cơ sở dữ liệu
 from src.models.multimodal_net import MultimodalNet
@@ -586,10 +592,14 @@ def show_main_app():
     # --- TOP HEADER & NAVBAR ---
     h1, h2 = st.columns([3, 1])
     with h1:
-        st.markdown("""
-        <div class="top-header" style="text-align: left; background: none; padding: 0;">
-            <h1 style="color: #00f0ff; margin: 0; font-size: 32px;">HOSPITAL TEAMS 11</h1>
-            <p style="color: #a0aec0; margin: 0; font-size: 16px;">HỆ THỐNG CHẨN ĐOÁN Y KHOA TRÍ TUỆ NHÂN TẠO</p>
+        img_base64 = get_base64_of_bin_file("profile/logo.jpg")
+        st.markdown(f"""
+        <div class="top-header" style="text-align: left; background: none; padding: 0; display: flex; align-items: center;">
+            <img src="data:image/jpeg;base64,{img_base64}" style="width: 60px; height: 60px; margin-right: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+            <div>
+                <h1 style="color: #00f0ff; margin: 0; font-size: 32px;">HOSPITAL TEAMS 11</h1>
+                <p style="color: #a0aec0; margin: 0; font-size: 16px;">HỆ THỐNG CHẨN ĐOÁN Y KHOA TRÍ TUỆ NHÂN TẠO</p>
+            </div>
         </div>
         """, unsafe_allow_html=True)
     with h2:
