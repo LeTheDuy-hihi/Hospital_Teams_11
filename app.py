@@ -1395,26 +1395,28 @@ def show_main_app():
             st.markdown("</div>", unsafe_allow_html=True)
 
     elif page == 'ai':
-        st.markdown("<div class='card-title'>PHÒNG KHÁM ONLINE: CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</div>", unsafe_allow_html=True)
+        st.markdown("<h1 style='color: #00f0ff; text-align: center; font-size: 36px; font-weight: 800; letter-spacing: 2px; margin-bottom: 30px; text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);'>PHÒNG KHÁM ONLINE: CHẨN ĐOÁN AI ĐA PHƯƠNG THỨC</h1>", unsafe_allow_html=True)
         
         model, tokenizer, transform, device = load_system()
         if model is None:
             st.error("❌ LỖI: Không tìm thấy hệ thống AI.")
             st.stop()
             
-        col_clinical, col_report = st.columns([1.2, 1], gap="medium")
+        col_clinical, col_report = st.columns([1.2, 1], gap="large")
         
         with col_clinical:
-            st.markdown("<div class='card'>", unsafe_allow_html=True)
-            st.markdown("<h4 style='color:#00f0ff; border-bottom: 1px solid rgba(0, 240, 255, 0.3); padding-bottom: 10px;'>NHẬP THÔNG TIN LÂM SÀNG</h4>", unsafe_allow_html=True)
+            st.markdown("<div class='card' style='padding: 40px;'>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color:#00f0ff; font-size: 26px; border-bottom: 2px solid rgba(0, 240, 255, 0.4); padding-bottom: 15px; margin-bottom: 25px;'><span style='font-size: 30px;'>📋</span> NHẬP THÔNG TIN LÂM SÀNG</h3>", unsafe_allow_html=True)
             
+            st.markdown("<p style='font-size: 18px; color: #f8fafc; font-weight: 600; margin-bottom: 10px;'>Mô tả chi tiết triệu chứng (Bắt buộc):</p>", unsafe_allow_html=True)
             symptom_text = st.text_area(
                 "Mô tả chi tiết triệu chứng:", height=150,
-                placeholder="Ví dụ: Vùng da mẩn đỏ, có cảm giác ngứa ngáy và đau rát nhẹ khi chạm vào..."
+                placeholder="Ví dụ: Vùng da mẩn đỏ, có cảm giác ngứa ngáy và đau rát nhẹ khi chạm vào...",
+                label_visibility="collapsed"
             )
             
             st.markdown("<br>", unsafe_allow_html=True)
-            st.markdown("**Hình ảnh tổn thương da:**")
+            st.markdown("<p style='font-size: 18px; color: #f8fafc; font-weight: 600; margin-bottom: 10px;'>Hình ảnh tổn thương da (Bắt buộc):</p>", unsafe_allow_html=True)
             
             img_source = st.radio("Chọn phương thức nhận ảnh:", ["📸 Chụp ảnh từ Camera", "📂 Tải ảnh từ máy tính"], horizontal=True, label_visibility="collapsed")
             
@@ -1438,13 +1440,39 @@ def show_main_app():
             st.markdown("</div>", unsafe_allow_html=True)
             
         with col_report:
-            st.markdown("<div class='card'>", unsafe_allow_html=True)
-            st.markdown("<h4 style='color:#00f0ff; border-bottom: 1px solid rgba(0, 240, 255, 0.3); padding-bottom: 10px;'>KẾT QUẢ TỪ TRÍ TUỆ NHÂN TẠO</h4>", unsafe_allow_html=True)
+            st.markdown("<div class='card' style='padding: 40px;'>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color:#00f0ff; font-size: 26px; border-bottom: 2px solid rgba(0, 240, 255, 0.4); padding-bottom: 15px; margin-bottom: 25px;'><span style='font-size: 30px;'>🤖</span> KẾT QUẢ TỪ TRÍ TUỆ NHÂN TẠO</h3>", unsafe_allow_html=True)
             
             if not uploaded_file or not symptom_text.strip():
-                st.info("ℹ️ Hệ thống đang chờ hình ảnh và mô tả triệu chứng của bạn.")
+                st.markdown("""
+                <div style='background: rgba(15, 23, 42, 0.8); border: 1px dashed rgba(148, 163, 184, 0.5); padding: 30px; border-radius: 12px; text-align: center; color: #cbd5e1;'>
+                    <span style='font-size: 40px; display: block; margin-bottom: 15px;'>⏳</span>
+                    <p style='font-size: 18px; line-height: 1.6;'>Hệ thống đang chờ hình ảnh và mô tả triệu chứng của bạn để tiến hành phân tích.</p>
+                </div>
+                """, unsafe_allow_html=True)
             else:
-                if st.button("TIẾN HÀNH PHÂN TÍCH", type="primary", use_container_width=True):
+                st.markdown("""
+                <style>
+                    .analyze-btn {
+                        background: linear-gradient(90deg, #0284c7, #38bdf8);
+                        color: white !important;
+                        font-size: 20px !important;
+                        font-weight: bold !important;
+                        padding: 15px 30px;
+                        border-radius: 12px;
+                        border: none;
+                        width: 100%;
+                        cursor: pointer;
+                        box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+                        transition: all 0.3s ease;
+                    }
+                    .analyze-btn:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 8px 25px rgba(56, 189, 248, 0.6);
+                    }
+                </style>
+                """, unsafe_allow_html=True)
+                if st.button("🚀 TIẾN HÀNH PHÂN TÍCH", type="primary", use_container_width=True):
                     with st.spinner("Hệ thống AI đang phân tích đa phương thức... Vui lòng đợi..."):
                         img_tensor = transform(image).unsqueeze(0).to(device)
                         tokens = tokenizer(
@@ -1464,20 +1492,25 @@ def show_main_app():
                         
                         # Report Box
                         st.markdown(f"""
-                        <div class="report-card">
+                        <div class="report-card" style="padding: 40px; background: rgba(15, 23, 42, 0.9);">
                             <div class="report-header">
-                                <h2>PHIẾU KẾT QUẢ CHẨN ĐOÁN</h2>
-                                <p style="color:#64748b; margin:0; font-size:14px;">Ngày xét nghiệm: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
+                                <h2 style="font-size: 32px; letter-spacing: 2px;">PHIẾU KẾT QUẢ CHẨN ĐOÁN</h2>
+                                <p style="color:#94a3b8; margin-top:10px; font-size:16px;">Ngày xét nghiệm: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}</p>
                             </div>
-                            <p style="margin:0; font-size:16px; color:#00f0ff;">Kết luận sơ bộ:</p>
-                            <h3 style="color:#00f0ff; margin-top:5px; margin-bottom:15px; font-size: 24px; font-family: 'Orbitron', sans-serif;">{disease_str}</h3>
-                            <div class="severity-{severity}">
-                                {'> NGUY CƠ CAO: Đề nghị đến ngay bệnh viện Da liễu để sinh thiết.' if severity == 'danger' else '> CẢNH BÁO: Rủi ro tổn thương viêm nhiễm. Cần theo dõi thêm.' if severity == 'warning' else '> AN TOÀN: Tổn thương sinh lý Lành tính.'}
+                            
+                            <p style="margin: 0 0 10px 0; font-size: 18px; color:#cbd5e1;">Kết luận sơ bộ:</p>
+                            <div style="background: rgba(0, 240, 255, 0.1); border-left: 5px solid #00f0ff; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                                <h3 style="color:#00f0ff; margin: 0; font-size: 30px; font-family: 'Orbitron', sans-serif; text-transform: uppercase;">{disease_str}</h3>
                             </div>
-                            <div style="margin-top: 20px; border-top: 1px dashed rgba(0, 240, 255, 0.3); padding-top: 15px;">
-                                <p style="margin:0; font-size:16px; display:flex; justify-content:space-between;">
-                                    <span>Độ tin cậy của AI:</span>
-                                    <strong style="color: #00f0ff;">{conf_score:.1f}%</strong>
+                            
+                            <div class="severity-{severity}" style="font-size: 18px; padding: 15px; border-radius: 8px;">
+                                {'> 🚨 NGUY CƠ CAO: Đề nghị đến ngay bệnh viện Da liễu để sinh thiết.' if severity == 'danger' else '> ⚠️ CẢNH BÁO: Rủi ro tổn thương viêm nhiễm. Cần theo dõi thêm.' if severity == 'warning' else '> ✅ AN TOÀN: Tổn thương sinh lý Lành tính.'}
+                            </div>
+                            
+                            <div style="margin-top: 30px; border-top: 2px dashed rgba(0, 240, 255, 0.3); padding-top: 20px;">
+                                <p style="margin:0; font-size: 20px; display:flex; justify-content:space-between; align-items: center;">
+                                    <span style="color: #cbd5e1;">Độ tin cậy của AI:</span>
+                                    <strong style="color: #00f0ff; font-size: 28px; text-shadow: 0 0 10px rgba(0,240,255,0.5);">{conf_score:.1f}%</strong>
                                 </p>
                             </div>
                         </div>
