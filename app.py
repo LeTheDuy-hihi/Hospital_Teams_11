@@ -826,8 +826,8 @@ def show_main_app():
                 <div class="article-box" style="margin-bottom: 10px;">
                     <img class="article-img" src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
                     <div class="article-content">
-                        <div class="article-title">Top 5 phương pháp điều trị mụn trứng cá hiệu quả theo chuẩn y khoa</div>
-                        <div class="article-excerpt">Mụn trứng cá là nỗi ám ảnh của nhiều người. Cùng chuyên gia da liễu tìm hiểu 5 phác đồ điều trị được Bộ Y tế khuyên dùng...</div>
+                        <div class="article-title">Hướng Dẫn Chẩn Đoán Và Điều Trị Bệnh Da Liễu - Bộ Y Tế</div>
+                        <div class="article-excerpt">Phác đồ điều trị bệnh da liễu Bộ Y tế (Quyết định 4416/QĐ-BYT) là tài liệu chuyên môn chính thức nhằm thống nhất tiêu chuẩn chẩn đoán...</div>
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
@@ -1114,38 +1114,28 @@ def show_main_app():
         st.markdown("<div class='card'>", unsafe_allow_html=True)
         if page == 'news_detail_1':
             st.markdown('<img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
-            st.markdown("<h2 style='color:#0f172a;'>Top 5 phác đồ điều trị mụn trứng cá hiệu quả theo chuẩn y khoa</h2>", unsafe_allow_html=True)
-            st.write("**Tác giả:** TS. BS. Lê Thế Duy | **Ngày đăng:** 04/06/2026 | **Chuyên mục:** Chăm sóc da liễu")
+            st.markdown("<h2 style='color:#0f172a;'>Hướng Dẫn Chẩn Đoán Và Điều Trị Bệnh Da Liễu - Bộ Y Tế</h2>", unsafe_allow_html=True)
+            st.write("**Tác giả:** Đặng Thùy Linh | **Ngày đăng:** 04/03/2026 | **Chuyên mục:** Phác đồ điều trị")
             st.markdown("---")
             st.markdown("""
-            Mụn trứng cá (Acne Vulgaris) là một bệnh lý mãn tính của nang lông tuyến bã, ảnh hưởng đến hơn 80% thanh thiếu niên và người trưởng thành. Việc tự ý nặn mụn hoặc sử dụng các loại "kem trộn" trôi nổi không những không khỏi mà còn để lại hệ lụy sẹo rỗ vĩnh viễn. 
+            Da liễu là chuyên ngành vừa gần gũi vừa phức tạp — da là tấm chắn đầu tiên của cơ thể và đồng thời phản ánh nhiều vấn đề sức khỏe bên trong. 
+            
+            Nếu bạn đang tìm tài liệu tin cậy về chẩn đoán và điều trị, bài viết này sẽ là cẩm nang gọn nhẹ: giới thiệu Hướng dẫn Chẩn đoán và Điều trị của Bộ Y tế, Quyết định 4416/QĐ‑BYT (2023). Mục tiêu là giúp bác sĩ, sinh viên y và người quan tâm tiếp cận nhanh nguồn chuẩn.
 
-            Dưới đây là 5 phác đồ điều trị được Hiệp hội Da liễu Hoa Kỳ (AAD) và Bộ Y tế Việt Nam khuyên dùng:
+            ### 1. Hướng Dẫn Chẩn Đoán Và Điều Trị Các Bệnh Da Liễu Bộ Y Tế
+            Hướng dẫn Chẩn đoán và Điều trị Các Bệnh Da Liễu vừa được Bộ Y tế ban hành kèm theo Quyết định số 4416/QĐ‑BYT ngày 06/12/2023, do Bộ trưởng ký. Đây là tài liệu chuyên môn chính thức, nhằm thống nhất tiêu chuẩn chẩn đoán và quy trình điều trị cho các cơ sở y tế trên toàn quốc.
+            
+            Tài liệu 2023 được xây dựng trên nền tảng các hướng dẫn trước (như Quyết định 75/QĐ‑BYT năm 2015) và cập nhật những kiến thức mới nhất. Cuốn sách gồm nhiều chương, gần 112 mục bài và hơn 600 trang, bao quát hơn 80 bệnh da liễu từ sẩn vảy đến các nhóm bệnh khác, cung cấp hướng dẫn lâm sàng chi tiết.
 
-            ### 1. Sử dụng dẫn xuất Vitamin A (Retinol / Tretinoin / Adapalene)
-            Đây được coi là "tiêu chuẩn vàng" trong điều trị mụn trứng cá. 
-            - **Cơ chế:** Kích thích quá trình sừng hóa diễn ra bình thường, đẩy các nhân mụn ẩn sâu dưới da lên bề mặt, đồng thời ngăn chặn việc hình thành các vi nang mới.
-            - **Cách dùng:** Bôi một lớp cực mỏng (cỡ hạt đậu) vào buổi tối. Nên bắt đầu với Adapalene 0.1% (Differin) vì nó ít gây kích ứng nhất.
+            ### 2. Quyết Định 4416/QĐ-BYT 2023 
+            Phiên bản 2023 cập nhật những kiến thức mới nhất về hơn 80 bệnh da liễu, từ các bệnh thường gặp đến những trường hợp chuyên sâu. Nội dung được biên soạn nhằm hỗ trợ bác sĩ lâm sàng và nhân viên y tế thực hiện quyết định điều trị rõ ràng, phù hợp với thực tế tại cơ sở.
 
-            ### 2. Sử dụng BHA (Salicylic Acid) để làm sạch sâu
-            Salicylic Acid là một loại axit tan trong dầu. Khác với AHA chỉ hoạt động trên bề mặt, BHA có thể len lỏi sâu vào lỗ chân lông để hòa tan bã nhờn, làm bong các tế bào chết đang bít tắc.
-            - **Lưu ý:** Chỉ nên dùng dung dịch BHA 1-2% khoảng 2-3 lần/tuần để tránh khô da.
+            ### 3. Phác Đồ Điều Trị Bệnh Da Liễu 2023 - 2024
+            Phác đồ bao gồm hướng dẫn cho nhiều nhóm bệnh: các bệnh da do nhiễm khuẩn, do nấm – ký sinh trùng, do virus, cùng các bệnh da tự miễn và nhiều rối loạn khác. Nội dung nhấn mạnh cách chẩn đoán lâm sàng, cận lâm sàng và các lựa chọn điều trị phù hợp theo bằng chứng.
+            
+            Tài liệu bao quát nhiều bệnh da thường gặp như hạt cơm, bệnh da do vi rút (zona), viêm da tiếp xúc do côn trùng, nấm móng, nấm tóc và các bệnh da — niêm mạc khác. Nội dung hướng dẫn cả phần chẩn đoán và lựa chọn phác đồ điều trị phù hợp theo từng tình huống lâm sàng, giúp cán bộ y tế có cơ sở xử trí thống nhất.
 
-            ### 3. Tiêu diệt vi khuẩn bằng Kháng sinh bôi (Clindamycin) / Benzoyl Peroxide
-            Đối với các nốt mụn sưng đỏ, viêm có mủ (Mụn bọc), việc tiêu diệt vi khuẩn *C. acnes* là ưu tiên hàng đầu.
-            - **Benzoyl Peroxide (BPO):** Giải phóng oxy vào lỗ chân lông, tiêu diệt vi khuẩn kỵ khí. Tuy nhiên BPO làm khô da rất mạnh, chỉ nên chấm trực tiếp lên nốt mụn.
-            - **Clindamycin:** Kháng sinh bôi giúp giảm sưng viêm nhanh chóng. (Khuyến cáo: Luôn kết hợp Clindamycin với BPO để tránh hiện tượng kháng kháng sinh).
-
-            ### 4. Lấy nhân mụn chuẩn Y khoa
-            Việc lấy nhân mụn (Nặn mụn) không chữa khỏi bệnh, nhưng nó giúp giải phóng ổ viêm, rút ngắn thời gian điều trị. 
-            - Tuyệt đối không tự nặn mụn tại nhà bằng tay không vì dễ gây nhiễm trùng.
-            - Hãy đến phòng khám da liễu để các kỹ thuật viên dùng tăm bông và kim vô khuẩn mở đầu mụn chuẩn xác, tránh để lại sẹo thâm và sẹo rỗ.
-
-            ### 5. Phục hồi màng bảo vệ da (Skin Barrier)
-            Tất cả các loại thuốc trị mụn kể trên đều làm da khô, đỏ và bong tróc. Nếu màng bảo vệ da suy yếu, vi khuẩn sẽ càng dễ tấn công trở lại.
-            - Hãy trang bị một tuýp kem dưỡng ẩm chứa các thành phần phục hồi như: Vitamin B5 (Panthenol), Ceramide, Hyaluronic Acid, Niacinamide.
-
-            > **💡 TỔNG KẾT:** Điều trị mụn là một cuộc chiến dài hạn, đòi hỏi sự kiên nhẫn ít nhất 8-12 tuần mới thấy kết quả rõ rệt. Hãy tuân thủ phác đồ của bác sĩ và không nên thay đổi sản phẩm liên tục!
+            > **💡 KẾT LUẬN:** Bộ tài liệu hướng dẫn chẩn đoán và điều trị các bệnh da liễu — từ Quyết định 4416/QĐ-BYT 2023, các phiên bản PDF và sách chuyên khảo, đến phác đồ cập nhật 2023–2025 là nguồn tham khảo quan trọng cho cả bác sĩ lẫn người bệnh. Việc nắm bắt, tra cứu và áp dụng đúng các phác đồ chính thống giúp nâng cao chất lượng chăm sóc và giảm rủi ro điều trị.
             """)
         elif page == 'news_detail_2':
             st.markdown('<img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" style="width:100%; height:350px; object-fit:cover; border-radius:12px; margin-bottom:20px;">', unsafe_allow_html=True)
