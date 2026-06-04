@@ -589,47 +589,70 @@ def show_admin_app():
         st.markdown("</div>", unsafe_allow_html=True)
 
 def show_main_app():
-    # --- TOP HEADER & NAVBAR ---
-    h1, h2 = st.columns([3, 1])
-    with h1:
-        img_base64 = get_base64_of_bin_file("profile/logo.png")
-        st.markdown(f"""
-        <div class="top-header" style="text-align: left; background: none; padding: 0; display: flex; align-items: center;">
-            <img src="data:image/png;base64,{img_base64}" style="width: 180px; height: 180px; margin-right: 5px; filter: drop-shadow(0 4px 6px rgba(0,240,255,0.3));">
-            <div>
-                <h1 style="color: #00f0ff; margin: 0; font-size: 32px;">HOSPITAL TEAMS 11</h1>
-                <p style="color: #a0aec0; margin: 0; font-size: 16px;">HỆ THỐNG CHẨN ĐOÁN Y KHOA TRÍ TUỆ NHÂN TẠO</p>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    with h2:
-        st.markdown("<div style='margin-top: 10px;'></div>", unsafe_allow_html=True)
-        if not st.session_state.get('logged_in', False):
-            if st.button("🔐 ĐĂNG NHẬP / ĐĂNG KÝ", use_container_width=True):
-                navigate_to('login')
-        else:
-            user_name = st.session_state.get('user_info', {}).get('FullName', 'Bạn')
-            st.markdown(f"<div style='text-align: right; margin-bottom: 5px; color: white;'>👤 Chào, <b>{user_name}</b></div>", unsafe_allow_html=True)
-            if st.button("🚪 ĐĂNG XUẤT", use_container_width=True):
-                st.session_state.logged_in = False
-                st.session_state.is_admin = False
-                st.session_state.user_info = None
-                navigate_to('home')
-
-    st.markdown("<br>", unsafe_allow_html=True)
+    # CSS để làm Sticky Header
+    st.markdown("""
+    <style>
+    /* Ẩn header mặc định của Streamlit để có chỗ cho header tùy chỉnh */
+    header[data-testid="stHeader"] {
+        display: none;
+    }
     
-    # NAVIGATION BAR
-    nav1, nav2, nav3, nav4 = st.columns(4)
-    with nav1:
-        if st.button("🏠 TRANG CHỦ", use_container_width=True): navigate_to('home')
-    with nav2:
-        if st.button("🩺 CHẨN ĐOÁN AI", use_container_width=True): navigate_to('ai')
-    with nav3:
-        if st.button("📁 HỒ SƠ", use_container_width=True): navigate_to('history')
-    with nav4:
-        if st.button("📰 TIN TỨC & HỎI ĐÁP", use_container_width=True): navigate_to('news')
+    /* Gắn chặt container chứa marker lên top */
+    div[data-testid="stElementContainer"]:has(.sticky-header-marker) {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background-color: #0f172a; /* Màu nền app */
+        padding-top: 1rem;
+        padding-bottom: 10px;
+        margin-top: -3rem; /* Kéo lên sát mép màn hình */
+        border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
-    st.markdown("<hr style='margin-top: 0; border-top: 2px solid #e2e8f0;'>", unsafe_allow_html=True)
+    header_container = st.container()
+    with header_container:
+        st.markdown('<div class="sticky-header-marker"></div>', unsafe_allow_html=True)
+        # --- TOP HEADER & NAVBAR ---
+        h1, h2 = st.columns([3, 1])
+        with h1:
+            img_base64 = get_base64_of_bin_file("profile/logo.png")
+            st.markdown(f"""
+            <div class="top-header" style="text-align: left; background: none; padding: 0; display: flex; align-items: center;">
+                <img src="data:image/png;base64,{img_base64}" style="width: 180px; height: 180px; margin-right: 5px; filter: drop-shadow(0 4px 6px rgba(0,240,255,0.3));">
+                <div>
+                    <h1 style="color: #00f0ff; margin: 0; font-size: 32px;">HOSPITAL TEAMS 11</h1>
+                    <p style="color: #a0aec0; margin: 0; font-size: 16px;">HỆ THỐNG CHẨN ĐOÁN Y KHOA TRÍ TUỆ NHÂN TẠO</p>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+        with h2:
+            st.markdown("<div style='margin-top: 10px;'></div>", unsafe_allow_html=True)
+            if not st.session_state.get('logged_in', False):
+                if st.button("🔐 ĐĂNG NHẬP / ĐĂNG KÝ", use_container_width=True):
+                    navigate_to('login')
+            else:
+                user_name = st.session_state.get('user_info', {}).get('FullName', 'Bạn')
+                st.markdown(f"<div style='text-align: right; margin-bottom: 5px; color: white;'>👤 Chào, <b>{user_name}</b></div>", unsafe_allow_html=True)
+                if st.button("🚪 ĐĂNG XUẤT", use_container_width=True):
+                    st.session_state.logged_in = False
+                    st.session_state.is_admin = False
+                    st.session_state.user_info = None
+                    navigate_to('home')
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # NAVIGATION BAR
+        nav1, nav2, nav3, nav4 = st.columns(4)
+        with nav1:
+            if st.button("🏠 TRANG CHỦ", use_container_width=True): navigate_to('home')
+        with nav2:
+            if st.button("🩺 CHẨN ĐOÁN AI", use_container_width=True): navigate_to('ai')
+        with nav3:
+            if st.button("📁 HỒ SƠ", use_container_width=True): navigate_to('history')
+        with nav4:
+            if st.button("📰 TIN TỨC & HỎI ĐÁP", use_container_width=True): navigate_to('news')
 
     # --- ROUTING LOGIC ---
     page = st.session_state.get('page', 'home')
